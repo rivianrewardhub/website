@@ -932,6 +932,9 @@
     }
 
     /* ── r/Rivian Reddit Feed — tabbed ── */
+    /* Fetches via your CF Worker to avoid Reddit's CORS/bot blocking */
+    const REDDIT_WORKER = 'https://newsrivianresourcecom.scott-b9a.workers.dev/reddit';
+
     let redditCache = { trending: null, latest: null };
     let activeRedditTab = 'trending';
 
@@ -959,20 +962,33 @@
       `).join('');
     }
 
+    function renderRedditFallback() {
+      document.getElementById('redditFeed').innerHTML = `
+        <div class="reddit-row" style="padding:12px;">
+          <div class="reddit-content">
+            <div class="reddit-title" style="white-space:normal;">Unable to load posts right now</div>
+            <div class="reddit-meta" style="margin-top:6px;">
+              <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" style="color:var(--green); font-weight:600;">Visit r/Rivian on Reddit &rarr;</a>
+            </div>
+          </div>
+        </div>`;
+    }
+
     async function loadRedditTab(tab) {
       const container = document.getElementById('redditFeed');
       if (redditCache[tab]) { renderRedditPosts(redditCache[tab]); return; }
       container.innerHTML = `<div class="reddit-row skeleton-row"><div class="skeleton" style="height:14px;width:70%;border-radius:4px;"></div></div>`.repeat(5);
       try {
-        const endpoint = tab === 'trending' ? 'hot' : 'new';
-        const res = await fetch(`https://www.reddit.com/r/Rivian/${endpoint}.json?limit=8`, { headers: { 'Accept': 'application/json' } });
-        if (!res.ok) throw new Error();
+        const sort = tab === 'trending' ? 'hot' : 'new';
+        const res = await fetch(`${REDDIT_WORKER}?sort=${sort}`);
+        if (!res.ok) throw new Error(`Worker returned ${res.status}`);
         const data = await res.json();
         const posts = data.data.children.map(c => c.data).filter(p => !p.stickied).slice(0, 7);
+        if (!posts.length) throw new Error('No posts');
         redditCache[tab] = posts;
         renderRedditPosts(posts);
       } catch(e) {
-        container.innerHTML = `<p style="padding:8px 12px; font-size:13px; color:var(--text-muted);">Visit <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" style="color:var(--green);">r/Rivian on Reddit &rarr;</a></p>`;
+        renderRedditFallback();
       }
     }
 
