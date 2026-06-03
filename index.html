@@ -942,11 +942,6 @@
       const container = document.getElementById('redditFeed');
       container.innerHTML = posts.map(p => `
         <a href="https://www.reddit.com${p.permalink}" target="_blank" rel="noopener noreferrer" class="reddit-row">
-          <div class="reddit-votes">
-            <div class="reddit-votes-num">${fmtVotes(p.ups)}</div>
-            <div class="reddit-votes-label">pts</div>
-          </div>
-          <div class="reddit-divider"></div>
           <div class="reddit-content">
             <div class="reddit-title">${p.title}</div>
             <div class="reddit-meta">
