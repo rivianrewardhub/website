@@ -10,7 +10,7 @@
   ],
   "compatibility": "All Gen 1 and Gen 2 R1S and R1T owners in the US and Canada. Expected to be available on R2 at launch.",
   "alexa": "Enabling Rivian Assistant disables Alexa and all Alexa integrations — you cannot run both simultaneously. Amazon Music can still be played via Bluetooth, but Alexa voice control of Amazon Music will not work.",
-  "ownerNote": "I've been using Hey Rivian since 2026.15 dropped. Sometimes it's great, sometimes it's not. The biggest thing: you don't need to memorize commands — just talk to it like a person and it figures it out. In my experience, conversational navigation chaining feels noticeably better than Alexa. Make sure to enable Memory and Google Calendar in the Rivian app under Account > Rivian Intelligence — both are off by default and worth turning on.",
+  "ownerNote": "I've been using Hey Rivian since 2026.15 dropped. Sometimes it's great, sometimes it's not. Lots of room for improvment, to be honest.  Sometimes I find the back and forth a bit too slow (waiting for the beep to clear me to speak).  The biggest thing with functionality: you don't need to memorize commands — just talk to it like a person and it figures it out. In my experience, conversational navigation chaining feels noticeably better than Alexa, but it has a ways to go. Make sure to enable Memory and Google Calendar in the Rivian app under Account > Rivian Intelligence — both are off by default and worth turning on.",
   "messagingSetup": {
     "overview": "Before the assistant can read or send texts, you need to complete a one-time Bluetooth setup in your vehicle.",
     "steps": [
