@@ -20,12 +20,11 @@
   <meta property="og:type" content="website" />
 
   <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/shared.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared.css">
 
-  <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aabd2c264abb41589ccfd2223c79ae42"}'></script>
 
   <style>
@@ -34,31 +33,7 @@
     .hero-section {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border);
-      padding: 32px 0 28px;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: var(--green-pale);
-      color: var(--green);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 999px;
-      margin-bottom: 14px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--green);
-      display: inline-block;
+      padding: 36px 0 32px;
     }
 
     .hero-title {
@@ -67,15 +42,23 @@
       font-weight: 800;
       color: var(--text);
       line-height: 1.2;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       letter-spacing: -0.02em;
+      max-width: 600px;
     }
 
     .hero-sub {
       color: var(--text-muted);
-      font-size: 16px;
-      max-width: 540px;
-      line-height: 1.6;
+      font-size: 15px;
+      max-width: 500px;
+      line-height: 1.65;
+    }
+
+    .hero-sub a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(29,158,117,.3);
     }
 
     /* ─── MAIN LAYOUT ─── */
@@ -88,15 +71,106 @@
       align-items: start;
     }
 
-    .left-col { min-width: 0; }
-    .right-col { min-width: 0; }
-
     @media (max-width: 860px) {
       .main-grid { grid-template-columns: 1fr; }
     }
 
-    .left-col { display: flex; flex-direction: column; gap: 20px; }
-    .right-col { display: flex; flex-direction: column; gap: 16px; }
+    .left-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+    .right-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+
+    /* ─── FEATURED REVIEW — hero card ─── */
+    .review-hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .review-hero-inner {
+      padding: 28px 32px;
+      border-left: 4px solid var(--green);
+    }
+
+    .review-hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .review-hero-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+
+    .review-hero-excerpt {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+
+    /* Service stat strip inside the review card */
+    .review-stat-strip {
+      display: flex;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: var(--bg-secondary);
+    }
+
+    .review-stat-item {
+      flex: 1;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      border-right: 1px solid var(--border);
+    }
+
+    .review-stat-item:last-child { border-right: none; }
+
+    .review-stat-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .review-stat-num.warn { color: #c0392b; }
+
+    .review-stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .review-hero-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .review-hero-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
     /* ─── NEWS ─── */
     .news-header {
@@ -111,7 +185,7 @@
     .news-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
     }
 
     @media (max-width: 700px) { .news-grid { grid-template-columns: 1fr 1fr; } }
@@ -121,169 +195,25 @@
       background: var(--bg-secondary);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 14px 16px;
+      padding: 13px 15px;
       text-decoration: none;
       display: block;
-      transition: border-color 0.2s ease, transform 0.2s ease;
+      transition: border-color 0.2s ease, transform 0.15s ease;
     }
 
     .news-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .news-card-source { font-size: 11px; color: var(--text-dim); margin-bottom: 5px; }
-
+    .news-card-source { font-size: 11px; color: var(--text-dim); margin-bottom: 5px; font-weight: 600; }
     .news-card-title {
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--text);
       line-height: 1.4;
       margin-bottom: 8px;
     }
-
     .news-card-date { font-size: 11px; color: var(--text-dim); }
 
-    /* ─── REDDIT FEED ─── */
-    .reddit-feed { display: flex; flex-direction: column; gap: 2px; }
-
-    .reddit-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: background 0.15s ease;
-    }
-
-    .reddit-row:hover { background: var(--bg-secondary); }
-
-    .reddit-votes {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-      min-width: 36px;
-      flex-shrink: 0;
-    }
-
-    .reddit-votes-num {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--green);
-      line-height: 1;
-    }
-
-    .reddit-votes-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
-
-    .reddit-divider { width: 1px; height: 32px; background: var(--border); flex-shrink: 0; }
-
-    .reddit-content { flex: 1; min-width: 0; }
-
-    .reddit-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.4;
-      margin-bottom: 3px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .reddit-meta { font-size: 11px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; }
-
-    .reddit-flair {
-      background: var(--green-pale);
-      color: var(--green);
-      border-radius: 3px;
-      padding: 1px 6px;
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .reddit-comments { display: flex; align-items: center; gap: 3px; }
-
-    @keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
-    .skeleton { background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--border) 50%, var(--bg-secondary) 75%); background-size: 400px 100%; animation: shimmer 1.4s infinite; }
-    .skeleton-row { padding: 10px 12px; }
-
-    .reddit-tab {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 4px 12px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .reddit-tab.active {
-      background: var(--green-pale);
-      border-color: var(--green);
-      color: var(--green);
-    }
-
-    /* ─── REVIEW / GUIDE CARDS ─── */
-    .review-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--green);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 24px 28px;
-    }
-
-    .review-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
-
-    .review-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .review-excerpt {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 16px;
-      max-width: 680px;
-    }
-
-    .guide-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .guide-card .review-title {
-      font-size: 17px;
-      margin-bottom: 6px;
-    }
-    .guide-card .review-excerpt {
-      font-size: 14px;
-      margin-bottom: 0;
-    }
-    .guide-card .link-btn {
-      flex-shrink: 0;
-      white-space: nowrap;
-    }
-
-    /* ─── ASSISTANT FEATURE CARD ─── */
+    /* ─── ASSISTANT CARD ─── */
     .assistant-card {
       background: var(--green-dark);
       border-radius: var(--radius);
@@ -295,23 +225,27 @@
       flex-wrap: wrap;
     }
 
-    .assistant-card .review-title {
+    .assistant-card-title {
+      font-family: 'DM Sans', sans-serif;
       font-size: 17px;
-      margin-bottom: 6px;
+      font-weight: 800;
       color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -.01em;
     }
 
-    .assistant-card .review-excerpt {
+    .assistant-card-sub {
       font-size: 14px;
-      margin-bottom: 0;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+      max-width: 420px;
     }
 
     .assistant-new-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
       color: #9FE1CB;
       font-size: 10px;
       font-weight: 700;
@@ -343,7 +277,75 @@
       transition: opacity 0.15s;
     }
 
-    .assistant-btn:hover { opacity: 0.9; }
+    .assistant-btn:hover { opacity: 0.88; }
+
+    /* ─── GUIDE CARD ─── */
+    .guide-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .guide-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+      letter-spacing: -.01em;
+    }
+
+    .guide-card-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── RECALL BAR ─── */
+    .recall-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .recall-bar-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .vin-input {
+      flex: 1;
+      min-width: 180px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'Figtree', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      background: var(--bg-secondary);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .vin-input:focus { border-color: var(--green); }
+    .vin-input::placeholder { color: var(--text-dim); }
 
     /* ─── MOBILE JUMP NAV ─── */
     .mobile-jump-nav {
@@ -357,6 +359,7 @@
       scrollbar-width: none;
     }
     .mobile-jump-nav::-webkit-scrollbar { display: none; }
+
     .mobile-jump-pill {
       display: inline-block;
       flex-shrink: 0;
@@ -370,83 +373,19 @@
       text-decoration: none;
       white-space: nowrap;
     }
-    .mobile-jump-pill:hover { border-color: var(--green); color: var(--green); }
+
+    .mobile-jump-pill:hover,
     .mobile-jump-pill.pill-new {
       border-color: var(--green);
       color: var(--green);
       background: var(--green-pale);
     }
+
     @media (max-width: 860px) {
       .mobile-jump-nav { display: flex; }
     }
 
-    /* ─── RECALLS CARD ─── */
-    .recalls-card { padding: 20px 24px; }
-
-    .vin-input {
-      flex: 1;
-      min-width: 200px;
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: 'Figtree', sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      background: var(--bg-secondary);
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-    .vin-input:focus { border-color: var(--green); }
-
-    /* ─── STOCK CARD ─── */
-    .stock-card { padding: 20px; }
-
-    /* ─── REWARDS SIDEBAR ─── */
-    .rewards-card { padding: 20px; }
-
-    .rewards-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rewards-row:last-of-type { border-bottom: none; }
-    .rewards-row-label { font-size: 14px; color: var(--text-muted); }
-
-    .rewards-row-val {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    .rewards-row-val.gold { color: var(--gold); }
-
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      margin-top: 16px;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      padding: 11px 0;
-      border-radius: var(--radius-sm);
-      font-family: 'Figtree', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .cta-btn:hover { background: #18b882; transform: translateY(-1px); }
-
-    /* ─── SOFTWARE TRACKER (sidebar) ─── */
+    /* ─── SIDEBAR ─── */
     .sw-version {
       font-family: 'DM Sans', sans-serif;
       font-size: 28px;
@@ -479,33 +418,26 @@
       margin-top: 6px;
     }
 
-    /* ─── RESOURCES CARD ─── */
-    .resources-card { padding: 20px; }
-
-    /* ─── CONTACT ─── */
-    .contact-section { padding: 0 0 16px; }
-
-    .contact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      text-align: center;
+    .rewards-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
     }
-
-    .contact-card p { color: var(--text-muted); font-size: 16px; margin-bottom: 16px; }
-
-    .contact-link {
+    .rewards-row:last-of-type { border-bottom: none; }
+    .rewards-row-label { font-size: 14px; color: var(--text-muted); }
+    .rewards-row-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--green);
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: 600;
     }
-
-    .contact-link:hover { text-decoration: underline; }
+    .rewards-row-val.gold { color: var(--gold); }
 
     .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
 
+    /* ─── MOBILE SIDEBAR CARDS ─── */
     .mobile-sidebar-cards {
       display: none;
       flex-direction: column;
@@ -515,15 +447,37 @@
       .mobile-sidebar-cards { display: flex; }
     }
 
+    /* ─── CONTACT ─── */
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+    }
+    .contact-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; line-height: 1.65; }
+    .contact-link { color: var(--green); text-decoration: none; font-size: 17px; font-weight: 600; }
+    .contact-link:hover { text-decoration: underline; }
+
+    /* TAGS */
+    .tag {
+      display: inline-block;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
   </style>
 
 </head>
 <body>
 
-  <!-- ─── NAV ─── -->
   <div id="site-nav"></div>
 
-  <!-- ─── REFERRAL STRIP ─── -->
   <div class="referral-strip">
     <div class="strip-inner" style="justify-content:center;max-width:1160px;margin:0 auto;">
       <span class="strip-label">Referral code</span>
@@ -538,27 +492,25 @@
     </div>
   </div>
 
-  <!-- ─── HERO ─── -->
+  <!-- HERO -->
   <div class="hero-section">
     <div class="container">
-      <div class="hero-eyebrow">Real owner resource</div>
-      <h1 class="hero-title">Rivian tools, reviews, news &amp; resources for R1S, R1T, and R2 owners.</h1>
-      <p class="hero-sub">An independent resource from a Las Vegas-based R1S owner &mdash; not Rivian&rsquo;s official site, just real ownership experience.</p>
+      <h1 class="hero-title">Rivian tools, reviews &amp; resources from an actual owner.</h1>
+      <p class="hero-sub">Based in Las Vegas. Daily driving a 2026 R1S Dual Max. <a href="/reviews/2026-rivian-r1s-90-day-review/">Currently 90+ days in</a> &mdash; including 34 days in service for an unresolved heater issue. Not Rivian&rsquo;s site. Not a paid reviewer.</p>
     </div>
   </div>
 
-  <!-- ─── MOBILE JUMP NAV ─── -->
-  <div class="mobile-jump-nav" id="mobileJumpNav">
+  <!-- MOBILE JUMP NAV -->
+  <div class="mobile-jump-nav">
     <a href="#section-assistant" class="mobile-jump-pill pill-new">&#9733; Assistant</a>
-    <a href="#section-news" class="mobile-jump-pill">News</a>
-    <a href="#section-reddit" class="mobile-jump-pill">Reddit</a>
     <a href="#section-review" class="mobile-jump-pill">Review</a>
+    <a href="#section-news" class="mobile-jump-pill">News</a>
     <a href="#section-recalls" class="mobile-jump-pill">Recalls</a>
     <a href="#section-accessories" class="mobile-jump-pill">Accessories</a>
     <a href="#section-resources" class="mobile-jump-pill">Resources</a>
   </div>
 
-  <!-- ─── MAIN ─── -->
+  <!-- MAIN -->
   <div class="main-layout">
     <div class="container">
       <div class="main-grid">
@@ -566,20 +518,60 @@
         <!-- LEFT COLUMN -->
         <div class="left-col">
 
-          <!-- ASSISTANT FEATURE CARD -->
+          <!-- FEATURED REVIEW — leads the page -->
+          <div class="review-hero-card" id="section-review">
+            <div class="review-hero-inner">
+              <div class="review-hero-eyebrow">Owner review &middot; 90 days</div>
+              <h2 class="review-hero-title">2026 Rivian R1S Dual Max &mdash; Real-World Ownership Notes</h2>
+
+              <!-- Service stat strip -->
+              <div class="review-stat-strip">
+                <div class="review-stat-item">
+                  <span class="review-stat-num">Mar 17</span>
+                  <span class="review-stat-label">Delivery date</span>
+                </div>
+                <div class="review-stat-item">
+                  <span class="review-stat-num warn">34</span>
+                  <span class="review-stat-label">Days in service</span>
+                </div>
+                <div class="review-stat-item">
+                  <span class="review-stat-num warn">2</span>
+                  <span class="review-stat-label">Service visits</span>
+                </div>
+                <div class="review-stat-item">
+                  <span class="review-stat-num" style="font-size:13px;color:#c0392b;font-weight:700;padding-top:2px;">Unresolved</span>
+                  <span class="review-stat-label">Heater status</span>
+                </div>
+              </div>
+
+              <p class="review-hero-excerpt">Charging at home on NV Energy TOU, Sound &amp; Vision impressions, tire choices, software quirks, and a service situation that's been more eventful than expected. Documented honestly &mdash; good and bad.</p>
+
+              <div class="review-hero-footer">
+                <div class="review-hero-tags">
+                  <span class="tag">Las Vegas</span>
+                  <span class="tag">Dual Max</span>
+                  <span class="tag">Sound + Vision</span>
+                  <span class="tag">Darkout</span>
+                </div>
+                <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASSISTANT CARD -->
           <div class="assistant-card" id="section-assistant">
             <div>
               <div class="assistant-new-badge">New in 2026.15</div>
-              <h2 class="review-title">Hey Rivian &mdash; Voice Assistant Guide</h2>
-              <p class="review-excerpt">Owner-verified commands for climate, navigation, vehicle controls, media, calendar, and more. Includes known issues, tips, and FAQ &mdash; updated for the 2026.15 launch.</p>
+              <h2 class="assistant-card-title">Hey Rivian &mdash; Voice Assistant Guide</h2>
+              <p class="assistant-card-sub">Owner-verified commands for climate, navigation, vehicle controls, media, calendar, and more. Includes known issues, tips, and FAQ.</p>
             </div>
             <a href="/assistant/" class="assistant-btn">View guide &rarr;</a>
           </div>
 
-          <!-- NEWS — 6 cards, 3 columns -->
+          <!-- NEWS -->
           <div class="card" id="section-news">
             <div class="news-header">
-              <div class="section-label">Latest Rivian &amp; EV news</div>
+              <div class="section-label">Rivian news</div>
             </div>
             <div class="news-grid" id="newsTeaserFeed">
               <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
@@ -591,61 +583,37 @@
             </div>
           </div>
 
-          <!-- COMMUNITY CARD -->
-          <div class="guide-card" id="section-reddit">
-            <div>
-              <div class="section-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--green)" xmlns="http://www.w3.org/2000/svg"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
-                r/Rivian community
-              </div>
-              <h2 class="review-title">Join 170,000+ Rivian owners on Reddit</h2>
-              <p class="review-excerpt">The largest Rivian community online &mdash; ownership questions, software updates, trip reports, and real-world advice from fellow owners.</p>
+          <!-- RECALL BAR — condensed -->
+          <div class="recall-bar" id="section-recalls">
+            <div class="recall-bar-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Recall check
             </div>
-            <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="link-btn">Visit r/Rivian &rarr;</a>
+            <input id="vinInput" type="text" placeholder="Enter 17-digit VIN" maxlength="17" class="vin-input" />
+            <a id="vinBtn" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="link-btn" style="white-space:nowrap;flex-shrink:0;">Check NHTSA &rarr;</a>
           </div>
 
-          <!-- RECALL VIN LOOKUP -->
-          <div class="card recalls-card" id="section-recalls">
-            <div class="news-header">
-              <div class="section-label">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                Recall Check
-              </div>
-            </div>
-            <p style="font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:16px;">Enter your VIN to check for open recalls directly on NHTSA &mdash; the official source, always current.</p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap;">
-              <input
-                id="vinInput"
-                type="text"
-                placeholder="Enter your 17-digit VIN"
-                maxlength="17"
-                class="vin-input"
-              />
-              <a id="vinBtn" href="https://www.nhtsa.gov/vehicle/vin-lookup" target="_blank" rel="noopener noreferrer" class="link-btn" style="white-space:nowrap;">Check on NHTSA &rarr;</a>
-            </div>
-            <p style="font-size:11px; color:var(--text-dim); margin-top:10px;">Your VIN is on your dashboard (driver&rsquo;s side), door jamb sticker, or registration.</p>
-          </div>
-
-          <div class="review-card" id="section-review">
-            <div class="section-label">Featured review</div>
-            <h2 class="review-title">90 Days With My 2026 Rivian R1S</h2>
-            <div class="review-meta">
-              <span class="tag">Long-term</span>
-              <span class="tag">Las Vegas</span>
-              <span class="tag">Sound + Vision</span>
-              <span style="font-size:12px; color:var(--text-dim);">May 2025</span>
-            </div>
-            <p class="review-excerpt">After 90 days of daily driving, the R1S has become one of the most enjoyable vehicles I&rsquo;ve owned. Notes on charging, service, software quirks, tire decisions, and the Sound + Vision package in the real world.</p>
-            <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review</a>
-          </div>
-
+          <!-- COMPARE GUIDE -->
           <div class="guide-card">
             <div>
               <div class="section-label">Featured guide</div>
-              <h2 class="review-title">R1S vs R2 &mdash; Full Comparison</h2>
-              <p class="review-excerpt">Side-by-side breakdown of range, price, dimensions, towing capacity, and feature differences to help you decide which Rivian is right for you.</p>
+              <div class="guide-card-title">R1S vs R2 &mdash; Full Comparison</div>
+              <p class="guide-card-sub">Range, price, dimensions, towing capacity, and feature differences side by side.</p>
             </div>
-            <a href="/compare/" class="link-btn">See the comparison</a>
+            <a href="/compare/" class="link-btn" style="flex-shrink:0;white-space:nowrap;">See comparison &rarr;</a>
+          </div>
+
+          <!-- REDDIT / COMMUNITY -->
+          <div class="guide-card">
+            <div>
+              <div class="section-label" style="display:flex;align-items:center;gap:6px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--green)" xmlns="http://www.w3.org/2000/svg"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+                r/Rivian community
+              </div>
+              <div class="guide-card-title">Join 170,000+ Rivian owners on Reddit</div>
+              <p class="guide-card-sub">Ownership questions, software updates, trip reports, and real-world advice from fellow owners.</p>
+            </div>
+            <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="link-btn" style="flex-shrink:0;white-space:nowrap;">Visit r/Rivian &rarr;</a>
           </div>
 
           <!-- MOBILE-ONLY SIDEBAR CARDS -->
@@ -659,7 +627,7 @@
               <a href="/software/" class="link-btn" style="margin-top:12px;font-size:13px;">Full update history</a>
             </div>
 
-            <div class="card" style="padding:20px;">
+            <div class="card" style="padding:20px;" id="section-accessories">
               <div class="section-label">Tested accessories</div>
               <div class="resource-row">
                 <div>
@@ -683,28 +651,28 @@
                 <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
               </div>
               <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews &rarr;</a>
-              <p style="font-size:10px; color:var(--text-dim); margin-top:8px; line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
+              <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
             </div>
 
             <div class="card" style="padding:20px;">
-              <div class="section-label">Using a referral code?</div>
-              <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">Order a Rivian with an owner referral code to receive Rewards points and 3 months of complimentary Adventure Network charging.</p>
+              <div class="section-label">Referral code</div>
+              <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">Order with an owner code to get Rewards points and 3 months of free Adventure Network charging.</p>
               <div class="rewards-row"><span class="rewards-row-label">Tri / Quad Motor</span><span class="rewards-row-val">500 pts</span></div>
               <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
               <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
               <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-              <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px; font-size:13px; display:flex; justify-content:center;">Use code SCOTT4395475 &rarr;</a>
+              <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475 &rarr;</a>
             </div>
 
           </div>
 
-        </div>
+        </div><!-- /left-col -->
 
         <!-- RIGHT COLUMN -->
         <div class="right-col">
 
-          <!-- RIVN STOCK — TradingView widget -->
-          <div class="card stock-card">
+          <!-- RIVN STOCK -->
+          <div class="card" style="padding:20px;">
             <div class="section-label">RIVN stock</div>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
@@ -729,11 +697,11 @@
             <a href="/software/" class="link-btn" style="margin-top:12px;font-size:13px;">Full update history</a>
           </div>
 
-          <!-- ASSISTANT SIDEBAR CARD -->
-          <div class="card" style="padding:20px; background:var(--green-dark); border-color:transparent;">
+          <!-- ASSISTANT SIDEBAR -->
+          <div class="card" style="padding:20px;background:var(--green-dark);border-color:transparent;">
             <div class="section-label" style="color:#9FE1CB;">Hey Rivian</div>
-            <p style="font-size:13px; color:rgba(255,255,255,0.75); line-height:1.65; margin-bottom:12px;">New in 2026.15 &mdash; owner-verified commands, known issues, and tips for the AI voice assistant.</p>
-            <a href="/assistant/" style="display:block; text-align:center; background:var(--green-light); color:var(--green-dark); font-weight:700; font-size:13px; padding:9px 14px; border-radius:6px; text-decoration:none;">View assistant guide &rarr;</a>
+            <p style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:12px;">New in 2026.15 &mdash; owner-verified commands, known issues, and tips for the AI voice assistant.</p>
+            <a href="/assistant/" style="display:block;text-align:center;background:var(--green-light);color:var(--green-dark);font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;text-decoration:none;">View assistant guide &rarr;</a>
           </div>
 
           <!-- ACCESSORIES -->
@@ -761,11 +729,11 @@
               <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
             </div>
             <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews &rarr;</a>
-            <p style="font-size:10px; color:var(--text-dim); margin-top:8px; line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
+            <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
           </div>
 
           <!-- OWNER RESOURCES -->
-          <div class="card resources-card" id="section-resources">
+          <div class="card" id="section-resources" style="padding:20px;">
             <div class="section-label">Owner resources</div>
             <div class="resource-row">
               <div><div class="resource-name">Rivian Roamer</div><div class="resource-desc">VIN lookup, inventory tracker</div></div>
@@ -793,37 +761,36 @@
             </div>
           </div>
 
-          <!-- REFERRAL REWARDS -->
-          <div class="card rewards-card">
-            <div class="section-label">Using a referral code?</div>
-            <p style="font-size:13px; color:var(--text-muted); line-height:1.6; margin-bottom:14px;">When you order a Rivian using an owner referral code, both you and the referring owner receive Rivian Rewards points &mdash; plus 3 months of complimentary Adventure Network charging. Points vary by configuration:</p>
+          <!-- REFERRAL REWARDS — sidebar only, one instance -->
+          <div class="card" style="padding:20px;">
+            <div class="section-label">Referral code</div>
+            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">Order with an owner code to get Rewards points and 3 months of free Adventure Network charging.</p>
             <div class="rewards-row"><span class="rewards-row-label">Tri / Quad Motor</span><span class="rewards-row-val">500 pts</span></div>
             <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
             <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
             <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-            <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px; font-size:13px; display:flex; justify-content:center;">Use code SCOTT4395475 &rarr;</a>
+            <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475 &rarr;</a>
           </div>
 
-        </div>
+        </div><!-- /right-col -->
+
       </div>
     </div>
   </div>
 
   <hr class="divider">
 
-  <!-- ─── CONTACT ─── -->
-  <div class="container contact-section" style="padding-top:40px;">
+  <div class="container" style="padding-top:40px;padding-bottom:16px;">
     <div class="contact-card">
-      <div class="section-label" style="justify-content:center; margin-bottom:10px;">Get in touch</div>
-      <h2 style="font-family:'DM Sans',sans-serif; font-size:clamp(22px,3vw,30px); font-weight:800; color:var(--text); margin-bottom:12px; letter-spacing:-0.02em;">Questions or ownership chat?</h2>
+      <div class="section-label" style="justify-content:center;margin-bottom:10px;">Get in touch</div>
+      <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-0.02em;">Questions or ownership chat?</h2>
       <p>Questions, tips, or reader submissions &mdash; accessory recommendations, road trip notes, ownership observations. Happy to talk Rivian.</p>
       <a class="contact-link" href="mailto:rivianresource@gmail.com">rivianresource@gmail.com</a>
     </div>
   </div>
 
-  <!-- ─── FOOTER ─── -->
   <footer>
-    <div style="max-width:1160px; margin:0 auto; padding:0 20px;">
+    <div style="max-width:1160px;margin:0 auto;padding:0 20px;">
       <img src="/images/logo.svg" alt="Rivian Resource">
       Independent Rivian owner resource featuring reviews, referral rewards, charging impressions, and ownership content.<br>
       Not affiliated with or endorsed by Rivian Automotive, Inc.
@@ -838,58 +805,20 @@
     </div>
   </footer>
 
-  <!-- ─── SCRIPTS ─── -->
   <script src="/nav-init.js"></script>
 
   <script>
-
-    /* ── Shared vote formatter ── */
-    function fmtVotes(n) {
-      if (n >= 1000) return (n / 1000).toFixed(1) + 'k';
-      return n.toString();
-    }
-
-    /* ── News Teaser — 6 articles, 3-col grid ── */
+    /* ── News Teaser ── */
     async function loadNewsTeaser() {
       const container = document.getElementById('newsTeaserFeed');
 
       const FALLBACK_ARTICLES = [
-        {
-          source: 'Rivian Stories',
-          title: 'Introducing Rivian Assistant and Rivian Unified Intelligence',
-          date: 'May 12, 2026',
-          url: 'https://stories.rivian.com/'
-        },
-        {
-          source: 'InsideEVs',
-          title: 'Rivian\'s New AI Voice Assistant Is Rolling Out — Here\'s What It Can Do',
-          date: 'May 13, 2026',
-          url: 'https://insideevs.com/news/795539/rivian-assistant-launch-r1-r2-2026/'
-        },
-        {
-          source: 'Gear Patrol',
-          title: 'Rivian Could Expand R2 With an Affordable Pickup Option to Rival Slate',
-          date: 'May 11, 2026',
-          url: 'https://www.gearpatrol.com/cars/rivian-could-expand-r2-with-affordable-pickup-option/'
-        },
-        {
-          source: 'Autoblog',
-          title: 'Rivian R2 Configurator Is Live — and a Spare Tire Will Cost You $755',
-          date: 'May 17, 2026',
-          url: 'https://www.autoblog.com/news/rivians-adventure-ev-charges-755-for-a-spare-tire'
-        },
-        {
-          source: 'The Weekly Driver',
-          title: 'Rivian\'s 2026 Lineup: Every Model, Every Price, and Which One to Buy',
-          date: 'May 1, 2026',
-          url: 'https://theweeklydriver.com/2026/04/rivian-2026-lineup-guide/'
-        },
-        {
-          source: 'InsideEVs',
-          title: 'Rivian, Lucid, and Slate: How EV Startups Are Navigating Their Most Important Year',
-          date: 'Apr 18, 2026',
-          url: 'https://insideevs.com/features/793324/rivian-slate-lucid-update-2026/'
-        }
+        { source: 'Rivian Stories', title: 'Introducing Rivian Assistant and Rivian Unified Intelligence', date: 'May 12, 2026', url: 'https://stories.rivian.com/' },
+        { source: 'InsideEVs', title: "Rivian's New AI Voice Assistant Is Rolling Out — Here's What It Can Do", date: 'May 13, 2026', url: 'https://insideevs.com/news/795539/rivian-assistant-launch-r1-r2-2026/' },
+        { source: 'Gear Patrol', title: 'Rivian Could Expand R2 With an Affordable Pickup Option to Rival Slate', date: 'May 11, 2026', url: 'https://www.gearpatrol.com/cars/rivian-could-expand-r2-with-affordable-pickup-option/' },
+        { source: 'Autoblog', title: 'Rivian R2 Configurator Is Live — and a Spare Tire Will Cost You $755', date: 'May 17, 2026', url: 'https://www.autoblog.com/news/rivians-adventure-ev-charges-755-for-a-spare-tire' },
+        { source: 'The Weekly Driver', title: "Rivian's 2026 Lineup: Every Model, Every Price, and Which One to Buy", date: 'May 1, 2026', url: 'https://theweeklydriver.com/2026/04/rivian-2026-lineup-guide/' },
+        { source: 'InsideEVs', title: 'Rivian, Lucid, and Slate: How EV Startups Are Navigating Their Most Important Year', date: 'Apr 18, 2026', url: 'https://insideevs.com/features/793324/rivian-slate-lucid-update-2026/' }
       ];
 
       function renderArticles(articles) {
@@ -902,49 +831,52 @@
         `).join('');
       }
 
-      function formatDate(d) { return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+      function formatDate(d) {
+        return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
 
       try {
         const res = await fetch('https://newsrivianresourcecom.scott-b9a.workers.dev/');
         if (!res.ok) throw new Error('Worker failed');
         const data = await res.json();
         if (!data.items?.length) throw new Error('No items');
-
         renderArticles(data.items.slice(0, 6).map(a => ({
           source: a.source,
           title: a.title,
           date: formatDate(a.pubDate),
           url: a.link
         })));
-
       } catch(e) {
         renderArticles(FALLBACK_ARTICLES);
       }
     }
 
-
+    /* ── Software Widget ── */
     async function loadSoftwareWidget() {
       try {
         const res = await fetch('/software/updates.json?v=' + Date.now());
         if (!res.ok) throw new Error();
         const updates = await res.json();
         const latest = updates[0];
-        document.getElementById('swVersion').textContent = latest.version;
-        document.getElementById('swDate').textContent = latest.name
-          ? `${latest.name} \u00b7 ${latest.date}`
-          : latest.date;
-        document.getElementById('swHighlights').innerHTML = latest.highlights
-          .slice(0, 4)
-          .map(h => `<div class="sw-highlight">${h}</div>`)
-          .join('');
-        const mvEl = document.getElementById('swVersionMobile');
-        const mdEl = document.getElementById('swDateMobile');
-        const mhEl = document.getElementById('swHighlightsMobile');
-        if (mvEl) mvEl.textContent = latest.version;
-        if (mdEl) mdEl.textContent = latest.name ? `${latest.name} \u00b7 ${latest.date}` : latest.date;
-        if (mhEl) mhEl.innerHTML = latest.highlights.slice(0, 3).map(h => `<div class="sw-highlight">${h}</div>`).join('');
+
+        ['swVersion','swVersionMobile'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = latest.version;
+        });
+        ['swDate','swDateMobile'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = latest.name ? `${latest.name} · ${latest.date}` : latest.date;
+        });
+
+        const highlightHtml = (n) => latest.highlights.slice(0, n).map(h => `<div class="sw-highlight">${h}</div>`).join('');
+        const swH = document.getElementById('swHighlights');
+        const swHM = document.getElementById('swHighlightsMobile');
+        if (swH) swH.innerHTML = highlightHtml(4);
+        if (swHM) swHM.innerHTML = highlightHtml(3);
+
       } catch(e) {
-        document.getElementById('swDate').textContent = 'Unable to load update data';
+        const el = document.getElementById('swDate');
+        if (el) el.textContent = 'Unable to load update data';
       }
     }
 
@@ -962,7 +894,6 @@
       loadNewsTeaser();
       loadSoftwareWidget();
     });
-
   </script>
 
   <script src="/shared.js"></script>
