@@ -471,6 +471,17 @@
       color: var(--text-muted);
     }
 
+    /* Suppress shared.css ::after arrow — arrows already in button text */
+    .link-btn::after { content: none !important; }
+
+    /* TOOLS GRID */
+    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+    .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px; transition: border-color 0.2s, transform 0.15s; }
+    .tool-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+    .tool-card-name { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
+    .tool-card-desc { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+    @media (max-width: 480px) { .tools-grid { grid-template-columns: 1fr; } }
+
   </style>
 
 </head>
@@ -553,7 +564,7 @@
                   <span class="tag">Sound + Vision</span>
                   <span class="tag">Darkout</span>
                 </div>
-                <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review &rarr;</a>
+                <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review</a>
               </div>
             </div>
           </div>
@@ -590,7 +601,7 @@
               Recall check
             </div>
             <input id="vinInput" type="text" placeholder="Enter 17-digit VIN" maxlength="17" class="vin-input" />
-            <a id="vinBtn" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="link-btn" style="white-space:nowrap;flex-shrink:0;">Check NHTSA &rarr;</a>
+            <a id="vinBtn" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="link-btn" style="white-space:nowrap;flex-shrink:0;">Check NHTSA</a>
           </div>
 
           <!-- COMPARE GUIDE -->
@@ -600,7 +611,7 @@
               <div class="guide-card-title">R1S vs R2 &mdash; Full Comparison</div>
               <p class="guide-card-sub">Range, price, dimensions, towing capacity, and feature differences side by side.</p>
             </div>
-            <a href="/compare/" class="link-btn" style="flex-shrink:0;white-space:nowrap;">See comparison &rarr;</a>
+            <a href="/compare/" class="link-btn" style="flex-shrink:0;white-space:nowrap;">See comparison</a>
           </div>
 
           <!-- REDDIT / COMMUNITY -->
@@ -613,7 +624,30 @@
               <div class="guide-card-title">Join 170,000+ Rivian owners on Reddit</div>
               <p class="guide-card-sub">Ownership questions, software updates, trip reports, and real-world advice from fellow owners.</p>
             </div>
-            <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="link-btn" style="flex-shrink:0;white-space:nowrap;">Visit r/Rivian &rarr;</a>
+            <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="link-btn" style="flex-shrink:0;white-space:nowrap;">Visit r/Rivian</a>
+          </div>
+
+          <!-- OWNER TOOLS GRID -->
+          <div class="card" style="padding:20px 24px;">
+            <div class="section-label" style="margin-bottom:12px;">Owner tools</div>
+            <div class="tools-grid">
+              <a href="/delivery/" class="tool-card">
+                <span class="tool-card-name">Delivery Checklist</span>
+                <span class="tool-card-desc">What to inspect before you drive off the lot</span>
+              </a>
+              <a href="/calculator/" class="tool-card">
+                <span class="tool-card-name">Charging Calculator</span>
+                <span class="tool-card-desc">Estimate cost per charge at home or on the road</span>
+              </a>
+              <a href="/software/" class="tool-card">
+                <span class="tool-card-name">Software Tracker</span>
+                <span class="tool-card-desc">Every OTA update with release notes</span>
+              </a>
+              <a href="/assistant/" class="tool-card">
+                <span class="tool-card-name">Hey Rivian Guide</span>
+                <span class="tool-card-desc">Voice commands, known issues, and tips</span>
+              </a>
+            </div>
           </div>
 
           <!-- MOBILE-ONLY SIDEBAR CARDS -->
@@ -627,7 +661,7 @@
               <a href="/software/" class="link-btn" style="margin-top:12px;font-size:13px;">Full update history</a>
             </div>
 
-            <div class="card" style="padding:20px;" id="section-accessories">
+            <div class="card" style="padding:20px;">
               <div class="section-label">Tested accessories</div>
               <div class="resource-row">
                 <div>
@@ -650,7 +684,7 @@
                 </div>
                 <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
               </div>
-              <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews &rarr;</a>
+              <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews</a>
               <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
             </div>
 
@@ -661,7 +695,7 @@
               <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
               <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
               <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-              <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475 &rarr;</a>
+              <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475</a>
             </div>
 
           </div>
@@ -728,7 +762,7 @@
               </div>
               <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
             </div>
-            <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews &rarr;</a>
+            <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews</a>
             <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
           </div>
 
@@ -769,7 +803,7 @@
             <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
             <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
             <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-            <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475 &rarr;</a>
+            <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475</a>
           </div>
 
         </div><!-- /right-col -->
