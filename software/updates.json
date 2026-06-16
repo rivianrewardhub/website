@@ -1,20 +1,5 @@
 [
   {
-  "version": "2026.15.30",
-  "name": "Rivian Assistant Hotfix",
-  "date": "June 5, 2026",
-  "highlights": [
-    "Improved contact search using Favorites, Recents, then full contact list",
-    "Auto-punctuation added when dictating text messages",
-    "Assistant now aware of route previews for charging and trip detail questions",
-    "Calendar privacy settings honored — hidden events stay hidden in vehicle",
-    "Assistant availability now based on vehicle language setting, not region",
-    "Smarter cloud reconnection in areas with spotty cellular service",
-    "Profile lock, PIN entry, and garage access security fixes",
-    "Fixed rare issue causing privacy settings to randomly toggle on or off"
-  ]
-}
-  {
     "version": "2026.15",
     "name": "Hey Rivian",
     "date": "May 11, 2026",
