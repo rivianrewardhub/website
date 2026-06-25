@@ -1,3 +1,4 @@
+
 <nav class="top-nav">
   <div class="container nav-inner" id="navInner">
     <a href="/" class="nav-brand">
@@ -19,11 +20,7 @@
       <a href="/">Home</a>
       <a href="/delivery/">Delivery Checklist</a>
       <a href="/charging/">Charging</a>
-      <a href="/software/">Software</a>
-      <a href="/assistant/" style="display:inline-flex;align-items:center;gap:6px;">
-        Assistant
-        <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:var(--green);color:#fff;padding:2px 6px;border-radius:3px;line-height:1.4;">New</span>
-      </a>
+      <a href="/software/">Updates</a>
       <a href="/accessories/">Accessories</a>
     </div>
   </div>
@@ -79,4 +76,12 @@
       width: 100%;
       padding: 11px 4px;
       font-size: 15px;
-      border-bottom: 1px solid va
+      border-bottom: 1px solid var(--border, #e4e6ea);
+      color: var(--text, #111827);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links a:last-child { border-bottom: none; }
+    .nav-links a.active { color: var(--green, #1D9E75); }
+  }
+</style>
