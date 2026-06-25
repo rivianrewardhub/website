@@ -2,334 +2,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Rivian R1S Owner Resource — Reviews, Tools &amp; Ownership Guides</title>
-
-  <meta
-    name="description"
-    content="Real-world Rivian R1S ownership reviews, delivery checklist, charging calculator, accessory guides, and ownership resources from a Las Vegas-based owner."
-  />
+  <meta name="description" content="Real-world Rivian R1S ownership reviews, delivery checklist, charging calculator, accessory guides, and ownership resources from a Las Vegas-based owner." />
   <link rel="canonical" href="https://www.rivianresource.com/" />
   <meta property="og:title" content="Rivian R1S Owner Resource — Reviews, Tools &amp; Ownership Guides"/>
   <meta property="og:description" content="Real-world Rivian R1S ownership reviews, delivery checklist, charging calculator, accessory guides, and ownership resources from a Las Vegas-based owner."/>
   <meta property="og:image" content="https://www.rivianresource.com/r1s.jpg" />
   <meta property="og:url" content="https://www.rivianresource.com/" />
   <meta property="og:type" content="website" />
-
   <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
 
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aabd2c264abb41589ccfd2223c79ae42"}'></script>
-
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ─── HERO ─── */
-    .hero-section {
-      background: var(--bg-card);
-      border-bottom: 1px solid var(--border);
-      padding: 36px 0 32px;
+    :root {
+      --green: #1D9E75;
+      --green-dark: #155e4a;
+      --green-light: #6ee7b7;
+      --green-pale: #eaf6f0;
+      --gold: #B97316;
+      --bg: #f5f6f8;
+      --bg-card: #ffffff;
+      --bg-secondary: #f9fafb;
+      --border: #e4e6ea;
+      --border-hover: #c8ccd4;
+      --text: #111827;
+      --text-muted: #374151;
+      --text-dim: #6b7280;
+      --radius: 12px;
+      --radius-sm: 7px;
+      --red-text: #991b1b;
+      --red-bg: #fef2f2;
     }
 
-    .hero-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(22px, 3vw, 32px);
-      font-weight: 800;
+    body {
+      font-family: 'Figtree', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
-      max-width: 600px;
+      min-height: 100vh;
     }
 
-    .hero-sub {
-      color: var(--text-muted);
-      font-size: 15px;
-      max-width: 500px;
-      line-height: 1.65;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    .hero-sub a {
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(29,158,117,.3);
+    /* ── REFERRAL STRIP ── */
+    .referral-strip {
+      background: var(--green-dark);
+      padding: 9px 20px;
     }
-
-    /* ─── MAIN LAYOUT ─── */
-    .main-layout { padding: 24px 0 48px; }
-
-    .main-grid {
-      display: grid;
-      grid-template-columns: 1fr 288px;
-      gap: 20px;
-      align-items: start;
+    .strip-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
-
-    @media (max-width: 860px) {
-      .main-grid { grid-template-columns: 1fr; }
-    }
-
-    .left-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
-    .right-col { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
-
-    /* ─── FEATURED REVIEW — hero card ─── */
-    .review-hero-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .review-hero-inner {
-      padding: 28px 32px;
-      border-left: 4px solid var(--green);
-    }
-
-    .review-hero-eyebrow {
+    .strip-label {
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--green);
-      margin-bottom: 10px;
+      letter-spacing: .07em;
+      color: rgba(255,255,255,.5);
     }
-
-    .review-hero-title {
+    .strip-code {
       font-family: 'DM Sans', sans-serif;
-      font-size: clamp(18px, 2.5vw, 24px);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--green-light);
+      letter-spacing: .04em;
+    }
+    .strip-divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,.2);
+    }
+    .strip-perks {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+    }
+    .strip-perks strong { color: #fff; }
+    .strip-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Figtree', sans-serif;
+      transition: background .15s;
+    }
+    .strip-btn:hover { background: rgba(255,255,255,.2); }
+    .strip-copied {
+      font-size: 11px;
+      color: var(--green-light);
+      font-weight: 700;
+      display: none;
+    }
+    .strip-copied.visible { display: inline; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 48px 0 44px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 700px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-badge-col { display: none; }
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(24px, 3.5vw, 38px);
       font-weight: 800;
       color: var(--text);
-      line-height: 1.25;
-      letter-spacing: -.02em;
-      margin-bottom: 10px;
+      line-height: 1.18;
+      letter-spacing: -.025em;
+      margin-bottom: 14px;
+      max-width: 560px;
     }
-
-    .review-hero-excerpt {
+    .hero-title em {
+      font-style: normal;
+      color: var(--green);
+    }
+    .hero-sub {
       font-size: 15px;
       color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 20px;
-      max-width: 600px;
+      max-width: 480px;
+      margin-bottom: 24px;
     }
-
-    /* Service stat strip inside the review card */
-    .review-stat-strip {
+    .hero-cta-row {
       display: flex;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      margin-bottom: 20px;
-      background: var(--bg-secondary);
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: background .15s;
+    }
+    .btn-primary:hover { background: var(--green-dark); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--border-hover);
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: border-color .15s, color .15s;
+    }
+    .btn-secondary:hover { border-color: var(--green); color: var(--green); }
 
-    .review-stat-item {
-      flex: 1;
-      padding: 12px 14px;
+    /* Owner badge */
+    .owner-badge {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      border-right: 1px solid var(--border);
+      gap: 10px;
+      min-width: 200px;
     }
-
-    .review-stat-item:last-child { border-right: none; }
-
-    .review-stat-num {
+    .badge-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .badge-num {
       font-family: 'DM Sans', sans-serif;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
-      line-height: 1;
       color: var(--text);
+      line-height: 1;
     }
-
-    .review-stat-num.warn { color: #c0392b; }
-
-    .review-stat-label {
+    .badge-num.warn { color: #c0392b; }
+    .badge-label {
       font-size: 11px;
       color: var(--text-dim);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .05em;
     }
-
-    .review-hero-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
+    .badge-divider {
+      border: none;
+      border-top: 1px solid var(--border);
     }
-
-    .review-hero-tags {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    /* ─── NEWS ─── */
-    .news-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .news-header .section-label { margin-bottom: 0; }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    @media (max-width: 700px) { .news-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .news-grid { grid-template-columns: 1fr; } }
-
-    .news-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 13px 15px;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.2s ease, transform 0.15s ease;
-    }
-
-    .news-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .news-card-source { font-size: 11px; color: var(--text-dim); margin-bottom: 5px; font-weight: 600; }
-    .news-card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+    .badge-vehicle {
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text);
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-    .news-card-date { font-size: 11px; color: var(--text-dim); }
-
-    /* ─── ASSISTANT CARD ─── */
-    .assistant-card {
-      background: var(--green-dark);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
+      color: var(--green);
+      letter-spacing: .02em;
     }
 
-    .assistant-card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 17px;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 6px;
-      letter-spacing: -.01em;
+    /* ── PAGE BODY ── */
+    .page-body {
+      padding: 28px 0 60px;
     }
-
-    .assistant-card-sub {
-      font-size: 14px;
-      color: rgba(255,255,255,.7);
-      line-height: 1.6;
-      max-width: 420px;
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 20px;
+      align-items: start;
     }
+    @media (max-width: 860px) {
+      .page-grid { grid-template-columns: 1fr; }
+      .sidebar-col { display: none; }
+      .mobile-sidebar { display: flex !important; }
+    }
+    .main-col { display: flex; flex-direction: column; gap: 16px; }
+    .sidebar-col { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 20px; }
 
-    .assistant-new-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.12);
-      color: #9FE1CB;
+    /* ── SECTION LABEL ── */
+    .section-label {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 999px;
-      margin-bottom: 10px;
+      letter-spacing: .1em;
+      color: var(--text-dim);
+      margin-bottom: 14px;
     }
 
-    .assistant-new-badge::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #9FE1CB;
-    }
-
-    .assistant-btn {
-      flex-shrink: 0;
-      white-space: nowrap;
-      background: var(--green-light);
-      color: var(--green-dark);
-      font-weight: 700;
-      font-size: 13px;
-      padding: 9px 18px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-
-    .assistant-btn:hover { opacity: 0.88; }
-
-    /* ─── GUIDE CARD ─── */
-    .guide-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-
-    .guide-card-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 5px;
-      letter-spacing: -.01em;
-    }
-
-    .guide-card-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ─── RECALL BAR ─── */
-    .recall-bar {
+    /* ── CARD ── */
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
+      padding: 24px;
     }
 
-    .recall-bar-label {
+    /* ── REVIEW CARD ── */
+    .review-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      border-left: 4px solid var(--green);
+      padding: 24px 28px;
+    }
+    .review-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .review-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .review-excerpt {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+      max-width: 560px;
+    }
+    .stat-strip {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--bg-secondary);
+      margin-bottom: 18px;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 11px 14px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+    }
+    .stat-num.warn { color: #c0392b; }
+    .stat-label {
+      font-size: 10px;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .review-footer {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 13px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
       font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ── TOOLS GRID ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 520px) { .tools-grid { grid-template-columns: 1fr; } }
+    .tool-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-decoration: none;
+      transition: border-color .15s, transform .15s;
+    }
+    .tool-card:hover { border-color: var(--green); transform: translateY(-2px); }
+    .tool-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tool-icon svg { width: 16px; height: 16px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .tool-text {}
+    .tool-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .tool-desc {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    /* ── RECALL BAR ── */
+    .recall-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .recall-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .recall-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 700;
       color: var(--text);
       white-space: nowrap;
       flex-shrink: 0;
     }
-
+    .recall-label svg { width: 15px; height: 15px; stroke: var(--text-dim); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .recall-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.5;
+      flex: 1;
+      min-width: 160px;
+    }
     .vin-input {
       flex: 1;
       min-width: 180px;
@@ -341,162 +443,227 @@
       color: var(--text);
       background: var(--bg-secondary);
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color .2s;
     }
-
     .vin-input:focus { border-color: var(--green); }
     .vin-input::placeholder { color: var(--text-dim); }
-
-    /* ─── MOBILE JUMP NAV ─── */
-    .mobile-jump-nav {
-      display: none;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      gap: 8px;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg-card);
-      scrollbar-width: none;
-    }
-    .mobile-jump-nav::-webkit-scrollbar { display: none; }
-
-    .mobile-jump-pill {
-      display: inline-block;
-      flex-shrink: 0;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 5px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
+    .btn-check {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
       text-decoration: none;
       white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .15s;
     }
+    .btn-check:hover { background: var(--green-dark); }
 
-    .mobile-jump-pill:hover,
-    .mobile-jump-pill.pill-new {
-      border-color: var(--green);
-      color: var(--green);
-      background: var(--green-pale);
+    /* ── ACCESSORIES ── */
+    .accessory-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
     }
-
-    @media (max-width: 860px) {
-      .mobile-jump-nav { display: flex; }
-    }
-
-    /* ─── SIDEBAR ─── */
-    .sw-version {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
+    .accessory-row:last-of-type { border-bottom: none; }
+    .accessory-name {
+      font-size: 13px;
+      font-weight: 600;
       color: var(--text);
-      line-height: 1;
       margin-bottom: 2px;
     }
-
-    .sw-date { font-size: 12px; color: var(--text-dim); margin-bottom: 14px; }
-
-    .sw-highlights { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-
-    .sw-highlight {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--text-muted);
+    .accessory-desc { font-size: 11.5px; color: var(--text-dim); }
+    .accessory-link {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      flex-shrink: 0;
+      transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .accessory-link:hover { background: var(--green); color: #fff; }
+    .affiliate-note {
+      font-size: 10px;
+      color: var(--text-dim);
+      margin-top: 10px;
       line-height: 1.5;
     }
 
-    .sw-highlight::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--green);
-      flex-shrink: 0;
-      margin-top: 6px;
+    /* ── REFERRAL CARD ── */
+    .referral-card {
+      background: var(--green-dark);
+      border-radius: var(--radius);
+      padding: 24px;
+      color: #fff;
     }
-
-    .rewards-row {
+    .referral-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.5);
+      margin-bottom: 4px;
+    }
+    .referral-code {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green-light);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .referral-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .referral-row:last-of-type { border-bottom: none; }
+    .referral-row-label { font-size: 13px; color: rgba(255,255,255,.65); }
+    .referral-row-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-light);
+    }
+    .referral-row-val.gold { color: #fbbf24; }
+    .referral-btn {
+      display: block;
+      text-align: center;
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      margin-top: 16px;
+      transition: opacity .15s;
+    }
+    .referral-btn:hover { opacity: .9; }
+
+    /* ── OWNER RESOURCES ── */
+    .resource-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 9px 0;
       border-bottom: 1px solid var(--border);
+      gap: 10px;
     }
-    .rewards-row:last-of-type { border-bottom: none; }
-    .rewards-row-label { font-size: 14px; color: var(--text-muted); }
-    .rewards-row-val {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+    .resource-row:last-child { border-bottom: none; }
+    .resource-name { font-size: 12px; font-weight: 600; color: var(--text); }
+    .resource-desc { font-size: 11px; color: var(--text-dim); }
+    .resource-link {
+      font-size: 11px;
       font-weight: 700;
       color: var(--green);
+      text-decoration: none;
+      padding: 3px 9px;
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      flex-shrink: 0;
+      transition: background .15s, color .15s;
     }
-    .rewards-row-val.gold { color: var(--gold); }
+    .resource-link:hover { background: var(--green); color: #fff; }
 
-    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-
-    /* ─── MOBILE SIDEBAR CARDS ─── */
-    .mobile-sidebar-cards {
+    /* ── MOBILE SIDEBAR ── */
+    .mobile-sidebar {
       display: none;
       flex-direction: column;
       gap: 16px;
     }
-    @media (max-width: 860px) {
-      .mobile-sidebar-cards { display: flex; }
-    }
 
-    /* ─── CONTACT ─── */
-    .contact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px;
-      text-align: center;
+    /* ── LINK BTN (shared) ── */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: background .15s, color .15s;
+      white-space: nowrap;
     }
-    .contact-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; line-height: 1.65; }
-    .contact-link { color: var(--green); text-decoration: none; font-size: 17px; font-weight: 600; }
-    .contact-link:hover { text-decoration: underline; }
-
-    /* TAGS */
-    .tag {
-      display: inline-block;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 3px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    /* Suppress shared.css ::after arrow — arrows already in button text */
+    .link-btn:hover { background: var(--green); color: #fff; }
     .link-btn::after { content: none !important; }
 
-    /* TOOLS GRID */
-    .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
-    .tool-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px; transition: border-color 0.2s, transform 0.15s; }
-    .tool-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .tool-card-name { font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); }
-    .tool-card-desc { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
-    @media (max-width: 480px) { .tools-grid { grid-template-columns: 1fr; } }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0 40px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+    footer img { display: block; margin: 0 auto 10px; height: 24px; }
+    .footer-guides {
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .footer-guides-label {
+      font-weight: 700;
+      color: var(--text-dim);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-right: 4px;
+    }
+    .footer-guides a {
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+    .footer-guides a:hover { color: var(--green); }
 
+    @media (max-width: 480px) {
+      .stat-strip { flex-wrap: wrap; }
+      .stat-item { min-width: 50%; border-bottom: 1px solid var(--border); }
+      .stat-item:nth-child(even) { border-right: none; }
+      .recall-row { flex-direction: column; align-items: stretch; }
+    }
   </style>
-
 </head>
 <body>
 
   <div id="site-nav"></div>
 
+  <!-- REFERRAL STRIP -->
   <div class="referral-strip">
-    <div class="strip-inner" style="justify-content:center;max-width:1160px;margin:0 auto;">
+    <div class="strip-inner">
       <span class="strip-label">Referral code</span>
       <span class="strip-code" onclick="stripCopyCode()" style="cursor:pointer;">SCOTT4395475</span>
       <span class="strip-divider"></span>
       <span class="strip-perks"><strong>Up to 500 pts</strong> + <strong>3 months</strong> free Adventure Network charging</span>
       <button class="strip-btn" onclick="stripCopyCode()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copy
       </button>
       <span class="strip-copied" id="stripCopied">&#10003; Copied!</span>
@@ -504,433 +671,270 @@
   </div>
 
   <!-- HERO -->
-  <div class="hero-section">
+  <div class="hero">
     <div class="container">
-      <h1 class="hero-title">Rivian tools, reviews &amp; resources from an actual owner.</h1>
-      <p class="hero-sub">Based in Las Vegas. Daily driving a 2026 R1S Dual Max. <a href="/reviews/2026-rivian-r1s-90-day-review/">Currently 90+ days in</a> &mdash; including 34 days in service for an unresolved heater issue. Not Rivian&rsquo;s site. Not a paid reviewer.</p>
+      <div class="hero-inner">
+        <div>
+          <div class="hero-eyebrow">Independent owner resource · Not affiliated with Rivian</div>
+          <h1 class="hero-title">Researching a Rivian?<br>Here's what <em>ownership</em> actually looks like.</h1>
+          <p class="hero-sub">Real-world notes from a 2026 R1S Dual Max owner — including a service situation that's been more eventful than expected. No sponsorships. No PR talking points.</p>
+          <div class="hero-cta-row">
+            <a href="/reviews/2026-rivian-r1s-90-day-review/" class="btn-primary">Read the ownership review &rarr;</a>
+            <a href="/delivery/" class="btn-secondary">Delivery checklist</a>
+          </div>
+        </div>
+        <div class="hero-badge-col">
+          <div class="owner-badge">
+            <div class="badge-stat">
+              <span class="badge-num">2026</span>
+              <span class="badge-label">R1S Dual Max</span>
+            </div>
+            <hr class="badge-divider">
+            <div class="badge-stat">
+              <span class="badge-num warn">2</span>
+              <span class="badge-label">Service visits</span>
+            </div>
+            <div class="badge-stat">
+              <span class="badge-num warn">Unresolved</span>
+              <span class="badge-label">Heater status</span>
+            </div>
+            <hr class="badge-divider">
+            <div class="badge-vehicle">Las Vegas, NV</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- MOBILE JUMP NAV -->
-  <div class="mobile-jump-nav">
-    <a href="#section-assistant" class="mobile-jump-pill pill-new">&#9733; Assistant</a>
-    <a href="#section-review" class="mobile-jump-pill">Review</a>
-    <a href="#section-news" class="mobile-jump-pill">News</a>
-    <a href="#section-recalls" class="mobile-jump-pill">Recalls</a>
-    <a href="#section-accessories" class="mobile-jump-pill">Accessories</a>
-    <a href="#section-resources" class="mobile-jump-pill">Resources</a>
-  </div>
-
-  <!-- MAIN -->
-  <div class="main-layout">
+  <!-- PAGE BODY -->
+  <div class="page-body">
     <div class="container">
-      <div class="main-grid">
+      <div class="page-grid">
 
-        <!-- LEFT COLUMN -->
-        <div class="left-col">
+        <!-- MAIN COLUMN -->
+        <div class="main-col">
 
-          <!-- FEATURED REVIEW — leads the page -->
-          <div class="review-hero-card" id="section-review">
-            <div class="review-hero-inner">
-              <div class="review-hero-eyebrow">Owner review &middot; 90 days</div>
-              <h2 class="review-hero-title">2026 Rivian R1S Dual Max &mdash; Real-World Ownership Notes</h2>
-
-              <!-- Service stat strip -->
-              <div class="review-stat-strip">
-                <div class="review-stat-item">
-                  <span class="review-stat-num">Mar 17</span>
-                  <span class="review-stat-label">Delivery date</span>
-                </div>
-                <div class="review-stat-item">
-                  <span class="review-stat-num warn">34</span>
-                  <span class="review-stat-label">Days in service</span>
-                </div>
-                <div class="review-stat-item">
-                  <span class="review-stat-num warn">2</span>
-                  <span class="review-stat-label">Service visits</span>
-                </div>
-                <div class="review-stat-item">
-                  <span class="review-stat-num" style="font-size:13px;color:#c0392b;font-weight:700;padding-top:2px;">Unresolved</span>
-                  <span class="review-stat-label">Heater status</span>
-                </div>
+          <!-- REVIEW CARD -->
+          <div class="review-card">
+            <div class="review-eyebrow">Owner review</div>
+            <h2 class="review-title">2026 Rivian R1S Dual Max — Real-World Ownership Notes</h2>
+            <div class="stat-strip">
+              <div class="stat-item">
+                <span class="stat-num">Mar 17</span>
+                <span class="stat-label">Delivery date</span>
               </div>
-
-              <p class="review-hero-excerpt">Charging at home on NV Energy TOU, Sound &amp; Vision impressions, tire choices, software quirks, and a service situation that's been more eventful than expected. Documented honestly &mdash; good and bad.</p>
-
-              <div class="review-hero-footer">
-                <div class="review-hero-tags">
-                  <span class="tag">Las Vegas</span>
-                  <span class="tag">Dual Max</span>
-                  <span class="tag">Sound + Vision</span>
-                  <span class="tag">Darkout</span>
-                </div>
-                <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review</a>
+              <div class="stat-item">
+                <span class="stat-num warn">34</span>
+                <span class="stat-label">Days in service</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num warn">2</span>
+                <span class="stat-label">Service visits</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num warn" style="font-size:13px;padding-top:3px;">Unresolved</span>
+                <span class="stat-label">Heater status</span>
               </div>
             </div>
-          </div>
-
-          <!-- ASSISTANT CARD -->
-          <div class="assistant-card" id="section-assistant">
-            <div>
-              <div class="assistant-new-badge">New in 2026.15</div>
-              <h2 class="assistant-card-title">Hey Rivian &mdash; Voice Assistant Guide</h2>
-              <p class="assistant-card-sub">Owner-verified commands for climate, navigation, vehicle controls, media, calendar, and more. Includes known issues, tips, and FAQ.</p>
-            </div>
-            <a href="/assistant/" class="assistant-btn">View guide &rarr;</a>
-          </div>
-
-          <!-- NEWS -->
-          <div class="card" id="section-news">
-            <div class="news-header">
-              <div class="section-label">Rivian news</div>
-            </div>
-            <div class="news-grid" id="newsTeaserFeed">
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-              <div class="news-card"><div class="news-card-source">Loading&hellip;</div><div class="news-card-title" style="color:var(--text-dim);">Fetching headlines</div></div>
-            </div>
-          </div>
-
-          <!-- RECALL BAR — condensed -->
-          <div class="recall-bar" id="section-recalls">
-            <div class="recall-bar-label">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-dim)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              Recall check
-            </div>
-            <input id="vinInput" type="text" placeholder="Enter 17-digit VIN" maxlength="17" class="vin-input" />
-            <a id="vinBtn" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="link-btn" style="white-space:nowrap;flex-shrink:0;">Check NHTSA</a>
-          </div>
-
-          <!-- COMPARE GUIDE -->
-          <div class="guide-card">
-            <div>
-              <div class="section-label">Featured guide</div>
-              <div class="guide-card-title">R1S vs R2 &mdash; Full Comparison</div>
-              <p class="guide-card-sub">Range, price, dimensions, towing capacity, and feature differences side by side.</p>
-            </div>
-            <a href="/compare/" class="link-btn" style="flex-shrink:0;white-space:nowrap;">See comparison</a>
-          </div>
-
-          <!-- REDDIT / COMMUNITY -->
-          <div class="guide-card">
-            <div>
-              <div class="section-label" style="display:flex;align-items:center;gap:6px;">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--green)" xmlns="http://www.w3.org/2000/svg"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
-                r/Rivian community
+            <p class="review-excerpt">Home charging on NV Energy TOU rates, Sound &amp; Vision impressions, tire choices, software quirks, and a service experience that's been more eventful than expected. Documented honestly — good and bad.</p>
+            <div class="review-footer">
+              <div class="tag-row">
+                <span class="tag">Dual Max</span>
+                <span class="tag">Sound + Vision</span>
+                <span class="tag">Darkout</span>
+                <span class="tag">Las Vegas</span>
               </div>
-              <div class="guide-card-title">Join 170,000+ Rivian owners on Reddit</div>
-              <p class="guide-card-sub">Ownership questions, software updates, trip reports, and real-world advice from fellow owners.</p>
+              <a href="/reviews/2026-rivian-r1s-90-day-review/" class="link-btn">Read full review</a>
             </div>
-            <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="link-btn" style="flex-shrink:0;white-space:nowrap;">Visit r/Rivian</a>
           </div>
 
-          <!-- OWNER TOOLS GRID -->
-          <div class="card" style="padding:20px 24px;">
-            <div class="section-label" style="margin-bottom:12px;">Owner tools</div>
+          <!-- TOOLS -->
+          <div class="card">
+            <div class="section-label">Buyer &amp; owner tools</div>
             <div class="tools-grid">
               <a href="/delivery/" class="tool-card">
-                <span class="tool-card-name">Delivery Checklist</span>
-                <span class="tool-card-desc">What to inspect before you drive off the lot</span>
+                <div class="tool-icon">
+                  <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div class="tool-text">
+                  <div class="tool-name">Delivery Checklist</div>
+                  <div class="tool-desc">55 items to inspect before you drive off the lot</div>
+                </div>
               </a>
               <a href="/calculator/" class="tool-card">
-                <span class="tool-card-name">Charging Calculator</span>
-                <span class="tool-card-desc">Estimate cost per charge at home or on the road</span>
+                <div class="tool-icon">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+                </div>
+                <div class="tool-text">
+                  <div class="tool-name">Charging Calculator</div>
+                  <div class="tool-desc">Estimate cost per charge at home or on the road</div>
+                </div>
+              </a>
+              <a href="/accessories/" class="tool-card">
+                <div class="tool-icon">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </div>
+                <div class="tool-text">
+                  <div class="tool-name">Accessories</div>
+                  <div class="tool-desc">Owner-tested gear, mounts, and must-haves</div>
+                </div>
               </a>
               <a href="/software/" class="tool-card">
-                <span class="tool-card-name">Software Tracker</span>
-                <span class="tool-card-desc">Every OTA update with release notes</span>
+                <div class="tool-icon">
+                  <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="tool-text">
+                  <div class="tool-name">Software Updates</div>
+                  <div class="tool-desc">OTA history, Hey Rivian assistant guide &amp; tips</div>
+                </div>
               </a>
-              <a href="/assistant/" class="tool-card">
-                <span class="tool-card-name">Hey Rivian Guide</span>
-                <span class="tool-card-desc">Voice commands, known issues, and tips</span>
-              </a>
             </div>
           </div>
 
-          <!-- MOBILE-ONLY SIDEBAR CARDS -->
-          <div class="mobile-sidebar-cards">
+          <!-- RECALL CHECKER -->
+          <div class="recall-card">
+            <div class="section-label">Recall check</div>
+            <div class="recall-row">
+              <div class="recall-label">
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                VIN lookup
+              </div>
+              <div class="recall-desc">Multiple active recalls affect 2025–2026 R1S and R1T. Check your VIN before delivery or purchase.</div>
+              <input id="vinInput" type="text" placeholder="Enter 17-digit VIN" maxlength="17" class="vin-input" />
+              <a id="vinBtn" href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="btn-check">Check NHTSA &rarr;</a>
+            </div>
+          </div>
+
+          <!-- ACCESSORIES (main col, full detail) -->
+          <div class="card">
+            <div class="section-label">Owner-tested accessories</div>
+            <div class="accessory-row">
+              <div>
+                <div class="accessory-name">Samsung T7 Shield 1TB</div>
+                <div class="accessory-desc">Heat-resistant Gear Guard SSD — plug and play, no setup</div>
+              </div>
+              <a href="https://amzn.to/4ttCWun" target="_blank" rel="noopener noreferrer" class="accessory-link">Amazon &rarr;</a>
+            </div>
+            <div class="accessory-row">
+              <div>
+                <div class="accessory-name">A2Z CCS1 Adapter</div>
+                <div class="accessory-desc">Essential for 2026 NACS owners at third-party DC chargers</div>
+              </div>
+              <a href="https://amzn.to/4eBEaQw" target="_blank" rel="noopener noreferrer" class="accessory-link">Amazon &rarr;</a>
+            </div>
+            <div class="accessory-row">
+              <div>
+                <div class="accessory-name">TWRAPS Wireless Charger</div>
+                <div class="accessory-desc">MagSafe dual charger — looks factory installed</div>
+              </div>
+              <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="accessory-link">Amazon &rarr;</a>
+            </div>
+            <div style="margin-top:14px;">
+              <a href="/accessories/" class="link-btn">See all accessories &rarr;</a>
+            </div>
+            <p class="affiliate-note">As an Amazon Associate I may earn from qualifying purchases.</p>
+          </div>
+
+          <!-- MOBILE SIDEBAR CARDS -->
+          <div class="mobile-sidebar">
+            <div class="referral-card">
+              <div class="referral-eyebrow">Referral code</div>
+              <div class="referral-code">SCOTT4395475</div>
+              <div class="referral-row"><span class="referral-row-label">Tri / Quad Motor</span><span class="referral-row-val">500 pts</span></div>
+              <div class="referral-row"><span class="referral-row-label">Dual Max Battery</span><span class="referral-row-val">250 pts</span></div>
+              <div class="referral-row"><span class="referral-row-label">Dual Standard</span><span class="referral-row-val">100 pts</span></div>
+              <div class="referral-row"><span class="referral-row-label">Free charging</span><span class="referral-row-val gold">3 months ⚡</span></div>
+              <a href="/rivian-referral-code/" class="referral-btn">Use code SCOTT4395475</a>
+            </div>
 
             <div class="card" style="padding:20px;">
-              <div class="section-label">Latest software</div>
-              <div class="sw-version" id="swVersionMobile"> </div>
-              <div class="sw-date" id="swDateMobile"> </div>
-              <div class="sw-highlights" id="swHighlightsMobile"></div>
-              <a href="/software/" class="link-btn" style="margin-top:12px;font-size:13px;">Full update history</a>
-            </div>
-
-            <div class="card" style="padding:20px;">
-              <div class="section-label">Tested accessories</div>
-              <div class="resource-row">
-                <div>
-                  <div class="resource-name">Samsung T7 Shield 1TB</div>
-                  <div class="resource-desc">Heat-resistant Gear Guard SSD &mdash; plug and play</div>
-                </div>
-                <a href="https://amzn.to/4ttCWun" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-              </div>
-              <div class="resource-row">
-                <div>
-                  <div class="resource-name">A2Z CCS1 Adapter</div>
-                  <div class="resource-desc">Essential for NACS owners at third-party chargers</div>
-                </div>
-                <a href="https://amzn.to/4eBEaQw" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-              </div>
-              <div class="resource-row">
-                <div>
-                  <div class="resource-name">TWRAPS Wireless Charger</div>
-                  <div class="resource-desc">MagSafe dual charger &mdash; looks factory installed</div>
-                </div>
-                <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-              </div>
-              <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews</a>
-              <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
-            </div>
-
-            <div class="card" style="padding:20px;">
-              <div class="section-label">Referral code</div>
-              <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">Order with an owner code to get Rewards points and 3 months of free Adventure Network charging.</p>
-              <div class="rewards-row"><span class="rewards-row-label">Tri / Quad Motor</span><span class="rewards-row-val">500 pts</span></div>
-              <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
-              <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
-              <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-              <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475</a>
-            </div>
-
-          </div>
-
-        </div><!-- /left-col -->
-
-        <!-- RIGHT COLUMN -->
-        <div class="right-col">
-
-          <!-- RIVN STOCK -->
-          <div class="card" style="padding:20px;">
-            <div class="section-label">RIVN stock</div>
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
-              {
-                "symbol": "NASDAQ:RIVN",
-                "width": "100%",
-                "locale": "en",
-                "colorTheme": "light",
-                "isTransparent": true
-              }
-              </script>
+              <div class="section-label">Owner resources</div>
+              <div class="resource-row"><div><div class="resource-name">Rivian Roamer</div><div class="resource-desc">VIN lookup, inventory tracker</div></div><a href="https://rivianroamer.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+              <div class="resource-row"><div><div class="resource-name">NHTSA Recall Database</div><div class="resource-desc">Check any VIN for active campaigns</div></div><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+              <div class="resource-row"><div><div class="resource-name">A Better Route Planner</div><div class="resource-desc">EV trip planning with charging stops</div></div><a href="https://abetterrouteplanner.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+              <div class="resource-row"><div><div class="resource-name">Rivian Gear Shop</div><div class="resource-desc">Accessories, key fobs, owner gear</div></div><a href="https://rivian.com/gear-shop" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+              <div class="resource-row"><div><div class="resource-name">Rivian Forums</div><div class="resource-desc">R1S, R1T, R2 community</div></div><a href="https://www.rivianforums.com/forum/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+              <div class="resource-row"><div><div class="resource-name">r/Rivian</div><div class="resource-desc">Reddit — 170k+ owners</div></div><a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
             </div>
           </div>
 
-          <!-- SOFTWARE TRACKER -->
-          <div class="card" style="padding:20px;">
-            <div class="section-label">Software update</div>
-            <div class="sw-version" id="swVersion"> </div>
-            <div class="sw-date" id="swDate"> </div>
-            <div class="sw-highlights" id="swHighlights"></div>
-            <a href="/software/" class="link-btn" style="margin-top:12px;font-size:13px;">Full update history</a>
-          </div>
+        </div><!-- /main-col -->
 
-          <!-- ASSISTANT SIDEBAR -->
-          <div class="card" style="padding:20px;background:var(--green-dark);border-color:transparent;">
-            <div class="section-label" style="color:#9FE1CB;">Hey Rivian</div>
-            <p style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.65;margin-bottom:12px;">New in 2026.15 &mdash; owner-verified commands, known issues, and tips for the AI voice assistant.</p>
-            <a href="/assistant/" style="display:block;text-align:center;background:var(--green-light);color:var(--green-dark);font-weight:700;font-size:13px;padding:9px 14px;border-radius:6px;text-decoration:none;">View assistant guide &rarr;</a>
-          </div>
+        <!-- SIDEBAR -->
+        <div class="sidebar-col">
 
-          <!-- ACCESSORIES -->
-          <div class="card" id="section-accessories" style="padding:20px;">
-            <div class="section-label">Tested accessories</div>
-            <div class="resource-row">
-              <div>
-                <div class="resource-name">Samsung T7 Shield 1TB</div>
-                <div class="resource-desc">Heat-resistant Gear Guard SSD &mdash; plug and play</div>
-              </div>
-              <a href="https://amzn.to/4ttCWun" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-            </div>
-            <div class="resource-row">
-              <div>
-                <div class="resource-name">A2Z CCS1 Adapter</div>
-                <div class="resource-desc">Essential for NACS owners at third-party chargers</div>
-              </div>
-              <a href="https://amzn.to/4eBEaQw" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-            </div>
-            <div class="resource-row">
-              <div>
-                <div class="resource-name">TWRAPS Wireless Charger</div>
-                <div class="resource-desc">MagSafe dual charger &mdash; looks factory installed</div>
-              </div>
-              <a href="https://amzn.to/3P3wwE5" target="_blank" rel="noopener noreferrer" class="resource-link">Amazon &rarr;</a>
-            </div>
-            <a href="/accessories/" class="link-btn" style="margin-top:12px;font-size:13px;">Read full reviews</a>
-            <p style="font-size:10px;color:var(--text-dim);margin-top:8px;line-height:1.5;">As an Amazon Associate I may earn from qualifying purchases.</p>
+          <!-- REFERRAL -->
+          <div class="referral-card">
+            <div class="referral-eyebrow">Referral code</div>
+            <div class="referral-code">SCOTT4395475</div>
+            <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:12px;">Order with an owner code to earn Rewards points and 3 months of free Adventure Network charging.</p>
+            <div class="referral-row"><span class="referral-row-label">Tri / Quad Motor</span><span class="referral-row-val">500 pts</span></div>
+            <div class="referral-row"><span class="referral-row-label">Dual Max Battery</span><span class="referral-row-val">250 pts</span></div>
+            <div class="referral-row"><span class="referral-row-label">Dual Standard</span><span class="referral-row-val">100 pts</span></div>
+            <div class="referral-row"><span class="referral-row-label">Free charging</span><span class="referral-row-val gold">3 months ⚡</span></div>
+            <a href="/rivian-referral-code/" class="referral-btn">Use code SCOTT4395475</a>
           </div>
 
           <!-- OWNER RESOURCES -->
-          <div class="card" id="section-resources" style="padding:20px;">
-            <div class="section-label">Owner resources</div>
-            <div class="resource-row">
-              <div><div class="resource-name">Rivian Roamer</div><div class="resource-desc">VIN lookup, inventory tracker</div></div>
-              <a href="https://rivianroamer.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-            <div class="resource-row">
-              <div><div class="resource-name">Rivian Gear Shop</div><div class="resource-desc">Accessories, key fobs, and owner gear</div></div>
-              <a href="https://rivian.com/gear-shop" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-            <div class="resource-row">
-              <div><div class="resource-name">A Better Route Planner</div><div class="resource-desc">EV trip planning with charging stops</div></div>
-              <a href="https://abetterrouteplanner.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-            <div class="resource-row">
-              <div><div class="resource-name">Charging Map</div><div class="resource-desc">Adventure Network stations</div></div>
-              <a href="https://rivian.com/experience/charging#map" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-            <div class="resource-row">
-              <div><div class="resource-name">Rivian Forums</div><div class="resource-desc">R1S, R1T, R2 community</div></div>
-              <a href="https://www.rivianforums.com/forum/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-            <div class="resource-row">
-              <div><div class="resource-name">r/Rivian</div><div class="resource-desc">Reddit community</div></div>
-              <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
-            </div>
-          </div>
-
-          <!-- REFERRAL REWARDS — sidebar only, one instance -->
           <div class="card" style="padding:20px;">
-            <div class="section-label">Referral code</div>
-            <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">Order with an owner code to get Rewards points and 3 months of free Adventure Network charging.</p>
-            <div class="rewards-row"><span class="rewards-row-label">Tri / Quad Motor</span><span class="rewards-row-val">500 pts</span></div>
-            <div class="rewards-row"><span class="rewards-row-label">Dual Max Battery</span><span class="rewards-row-val">250 pts</span></div>
-            <div class="rewards-row"><span class="rewards-row-label">Dual Standard</span><span class="rewards-row-val">100 pts</span></div>
-            <div class="rewards-row"><span class="rewards-row-label">Free charging</span><span class="rewards-row-val gold">3 months &#9889;</span></div>
-            <a href="/rivian-referral-code/" class="link-btn" style="margin-top:16px;font-size:13px;display:flex;justify-content:center;">Use code SCOTT4395475</a>
+            <div class="section-label">Owner resources</div>
+            <div class="resource-row"><div><div class="resource-name">Rivian Roamer</div><div class="resource-desc">VIN lookup, inventory tracker</div></div><a href="https://rivianroamer.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">NHTSA Recall Database</div><div class="resource-desc">Check any VIN for active campaigns</div></div><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">A Better Route Planner</div><div class="resource-desc">EV trip planning with charging stops</div></div><a href="https://abetterrouteplanner.com" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">Rivian Gear Shop</div><div class="resource-desc">Accessories, key fobs, owner gear</div></div><a href="https://rivian.com/gear-shop" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">Rivian Charging Map</div><div class="resource-desc">Adventure Network stations</div></div><a href="https://rivian.com/experience/charging#map" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">Rivian Forums</div><div class="resource-desc">R1S, R1T, R2 community</div></div><a href="https://www.rivianforums.com/forum/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
+            <div class="resource-row"><div><div class="resource-name">r/Rivian</div><div class="resource-desc">Reddit — 170k+ owners</div></div><a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a></div>
           </div>
 
-        </div><!-- /right-col -->
+        </div><!-- /sidebar-col -->
 
       </div>
     </div>
   </div>
 
-  <hr class="divider">
-
-  <div class="container" style="padding-top:40px;padding-bottom:16px;">
-    <div class="contact-card">
-      <div class="section-label" style="justify-content:center;margin-bottom:10px;">Get in touch</div>
-      <h2 style="font-family:'DM Sans',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:800;color:var(--text);margin-bottom:12px;letter-spacing:-0.02em;">Questions or ownership chat?</h2>
-      <p>Questions, tips, or reader submissions &mdash; accessory recommendations, road trip notes, ownership observations. Happy to talk Rivian.</p>
-      <a class="contact-link" href="mailto:rivianresource@gmail.com">rivianresource@gmail.com</a>
-    </div>
-  </div>
-
   <footer>
-    <div style="max-width:1160px;margin:0 auto;padding:0 20px;">
+    <div class="container">
       <img src="/images/logo.svg" alt="Rivian Resource">
-      Independent Rivian owner resource featuring reviews, referral rewards, charging impressions, and ownership content.<br>
-      Not affiliated with or endorsed by Rivian Automotive, Inc.
+      Independent Rivian owner resource · Not affiliated with or endorsed by Rivian Automotive, Inc.
       <div class="footer-guides">
-        <span class="footer-guides-label">Guides</span>
-        <a href="/assistant/">Assistant</a>
-        <a href="/software/">Software</a>
-        <a href="/compare/">R1S vs R2 Comparison</a>
+        <span class="footer-guides-label">Pages</span>
+        <a href="/reviews/2026-rivian-r1s-90-day-review/">Review</a>
+        <a href="/delivery/">Delivery Checklist</a>
         <a href="/accessories/">Accessories</a>
+        <a href="/software/">Updates</a>
+        <a href="/calculator/">Calculator</a>
+        <a href="/rivian-referral-code/">Referral Code</a>
         <a href="/about/">About</a>
       </div>
     </div>
   </footer>
 
-  <script src="/nav-init.js"></script>
-
   <script>
-    /* ── News Teaser ── */
-    async function loadNewsTeaser() {
-      const container = document.getElementById('newsTeaserFeed');
-
-      const FALLBACK_ARTICLES = [
-        { source: 'Rivian Stories', title: 'Introducing Rivian Assistant and Rivian Unified Intelligence', date: 'May 12, 2026', url: 'https://stories.rivian.com/' },
-        { source: 'InsideEVs', title: "Rivian's New AI Voice Assistant Is Rolling Out — Here's What It Can Do", date: 'May 13, 2026', url: 'https://insideevs.com/news/795539/rivian-assistant-launch-r1-r2-2026/' },
-        { source: 'Gear Patrol', title: 'Rivian Could Expand R2 With an Affordable Pickup Option to Rival Slate', date: 'May 11, 2026', url: 'https://www.gearpatrol.com/cars/rivian-could-expand-r2-with-affordable-pickup-option/' },
-        { source: 'Autoblog', title: 'Rivian R2 Configurator Is Live — and a Spare Tire Will Cost You $755', date: 'May 17, 2026', url: 'https://www.autoblog.com/news/rivians-adventure-ev-charges-755-for-a-spare-tire' },
-        { source: 'The Weekly Driver', title: "Rivian's 2026 Lineup: Every Model, Every Price, and Which One to Buy", date: 'May 1, 2026', url: 'https://theweeklydriver.com/2026/04/rivian-2026-lineup-guide/' },
-        { source: 'InsideEVs', title: 'Rivian, Lucid, and Slate: How EV Startups Are Navigating Their Most Important Year', date: 'Apr 18, 2026', url: 'https://insideevs.com/features/793324/rivian-slate-lucid-update-2026/' }
-      ];
-
-      function renderArticles(articles) {
-        container.innerHTML = articles.map(a => `
-          <a href="${a.url}" target="_blank" rel="noopener noreferrer" class="news-card">
-            <div class="news-card-source">${a.source}</div>
-            <div class="news-card-title">${a.title}</div>
-            <div class="news-card-date">${a.date}</div>
-          </a>
-        `).join('');
-      }
-
-      function formatDate(d) {
-        return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-      }
-
-      try {
-        const res = await fetch('https://newsrivianresourcecom.scott-b9a.workers.dev/');
-        if (!res.ok) throw new Error('Worker failed');
-        const data = await res.json();
-        if (!data.items?.length) throw new Error('No items');
-        renderArticles(data.items.slice(0, 6).map(a => ({
-          source: a.source,
-          title: a.title,
-          date: formatDate(a.pubDate),
-          url: a.link
-        })));
-      } catch(e) {
-        renderArticles(FALLBACK_ARTICLES);
-      }
+    function stripCopyCode() {
+      navigator.clipboard.writeText('SCOTT4395475').then(() => {
+        const el = document.getElementById('stripCopied');
+        el.classList.add('visible');
+        setTimeout(() => el.classList.remove('visible'), 2000);
+      });
     }
 
-    /* ── Software Widget ── */
-    async function loadSoftwareWidget() {
-      try {
-        const res = await fetch('/software/updates.json?v=' + Date.now());
-        if (!res.ok) throw new Error();
-        const updates = await res.json();
-        const latest = updates[0];
-
-        ['swVersion','swVersionMobile'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = latest.version;
-        });
-        ['swDate','swDateMobile'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = latest.name ? `${latest.name} · ${latest.date}` : latest.date;
-        });
-
-        const highlightHtml = (n) => latest.highlights.slice(0, n).map(h => `<div class="sw-highlight">${h}</div>`).join('');
-        const swH = document.getElementById('swHighlights');
-        const swHM = document.getElementById('swHighlightsMobile');
-        if (swH) swH.innerHTML = highlightHtml(4);
-        if (swHM) swHM.innerHTML = highlightHtml(3);
-
-      } catch(e) {
-        const el = document.getElementById('swDate');
-        if (el) el.textContent = 'Unable to load update data';
-      }
-    }
-
-    /* ── VIN Recall Lookup ── */
     document.addEventListener('DOMContentLoaded', () => {
       const vinInput = document.getElementById('vinInput');
       const vinBtn = document.getElementById('vinBtn');
-      vinInput.addEventListener('input', function() {
-        const vin = this.value.trim().toUpperCase();
-        vinBtn.href = vin.length === 17
-          ? `https://www.nhtsa.gov/recalls?vymm=${vin}`
-          : 'https://www.nhtsa.gov/recalls';
-      });
-
-      loadNewsTeaser();
-      loadSoftwareWidget();
+      if (vinInput && vinBtn) {
+        vinInput.addEventListener('input', function () {
+          const vin = this.value.trim().toUpperCase();
+          vinBtn.href = vin.length === 17
+            ? `https://www.nhtsa.gov/recalls?vymm=${vin}`
+            : 'https://www.nhtsa.gov/recalls';
+        });
+      }
     });
   </script>
 
   <script src="/shared.js"></script>
+  <script src="/nav-init.js"></script>
 
 </body>
 </html>
