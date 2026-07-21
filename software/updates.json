@@ -1,20 +1,5 @@
 [
   {
-    "version": "2026.24.40",
-    "name": "First R2 Software Update",
-    "date": "July 15, 2026",
-    "type": "major",
-    "highlights": [
-      "R2 only — this build applies to the R2, not R1S or R1T",
-      "Pet Comfort — maintains cabin temperature for pets while you're away from the vehicle",
-      "Gear Guard security cameras and motion-triggered alarm come to the R2",
-      "Launch Mode — maximum off-the-line acceleration with 0–60 mph and quarter-mile race stats",
-      "Garage door pairing (HomeLink/RF) and in-vehicle WiFi Hotspot",
-      "Schedule updates from the app, key fob battery indicator, and door-based profile loading"
-    ],
-    "rollout": "Released"
-  },
-  {
     "version": "2026.15",
     "name": "Hey Rivian",
     "date": "May 11, 2026",
