@@ -1,5 +1,19 @@
 [
   {
+    "version": "2026.23",
+    "name": "Smarter Moves",
+    "date": "August 6, 2026",
+    "type": "major",
+    "highlights": [
+      "Lane Change on Command now works on more roads beyond freeways while Universal Hands-Free is engaged (Gen 2)",
+      "Autonomy view now displays traffic lights and cones in the driver display for better situational awareness (Gen 2)",
+      "Natural language charging station search — e.g. \"charging options near Yellowstone\"",
+      "Rivian Assistant Memory — stores driver preferences and conversation context (off by default)",
+      "Rivian Assistant can now draft service requests from a description of the issue"
+    ],
+    "rollout": "Rolling out"
+  },
+  {
     "version": "2026.15",
     "name": "Hey Rivian",
     "date": "May 11, 2026",
@@ -11,7 +25,7 @@
       "Improved defrost for front driver assistance cameras",
       "Gen 2: Improved Lane Change on Command and Universal Hands-Free smoothness"
     ],
-    "rollout": "Rolling out"
+    "rollout": "Released"
   },
   {
     "version": "2026.07",
