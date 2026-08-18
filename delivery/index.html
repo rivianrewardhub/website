@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,6 @@
   <link rel="stylesheet" href="/shared.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --green: #1D9E75;
       --green-dark: #155e4a;
@@ -36,14 +36,12 @@
       --radius: 12px;
       --radius-sm: 7px;
     }
-
     body {
       font-family: 'Figtree', sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
     }
-
     /* ── PROGRESS BAR ── */
     .progress-bar-wrap {
       position: sticky;
@@ -86,7 +84,6 @@
       min-width: 40px;
       text-align: right;
     }
-
     /* ── HEADER ── */
     .page-header {
       background: var(--green-dark);
@@ -141,7 +138,6 @@
       color: var(--green-light);
       font-weight: 800;
     }
-
     /* ── LAYOUT ── */
     .page-body {
       max-width: 860px;
@@ -157,7 +153,49 @@
       .sidebar { display: none; }
     }
     .main-col { display: flex; flex-direction: column; gap: 12px; }
-
+    /* ── MODEL FILTER ── */
+    .model-filter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+    }
+    .model-filter-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-dim);
+      margin-right: 2px;
+    }
+    .model-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 15px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .model-btn:hover { border-color: var(--green); color: var(--green); }
+    .model-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
+    .model-ct { font-size: 11px; font-weight: 700; opacity: .8; margin-left: 5px; }
+    .model-btn.active .model-ct { color: rgba(255,255,255,.8); }
+    .model-hint {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.55;
+      padding: 2px 2px 0;
+    }
+    .checklist-item.hidden-by-filter { display: none; }
+    .checklist-section.hidden-by-filter { display: none; }
     /* ── SECTION CARDS ── */
     .checklist-section {
       background: var(--card);
@@ -169,7 +207,6 @@
     .checklist-section:focus-within {
       box-shadow: 0 0 0 2px rgba(29,158,117,.2);
     }
-
     .section-header {
       display: flex;
       align-items: center;
@@ -214,7 +251,6 @@
     }
     .checklist-section.collapsed .chevron { transform: rotate(-90deg); }
     .checklist-section.collapsed .items-wrap { display: none; }
-
     /* ── ITEMS ── */
     .items-wrap { padding: 2px 0; }
     .checklist-item {
@@ -232,7 +268,6 @@
     .checklist-item:hover { background: #fafbfc; }
     .checklist-item:active { background: var(--bg); }
     .checklist-item.checked { background: var(--green-pale); }
-
     .check-box {
       width: 22px; height: 22px;
       border-radius: 6px;
@@ -254,7 +289,6 @@
       stroke-width: 3; stroke-linecap: round; stroke-linejoin: round;
     }
     .checklist-item.checked .check-box svg { display: block; }
-
     .check-content { flex: 1; min-width: 0; }
     .check-label {
       font-size: 13px;
@@ -287,7 +321,20 @@
     .badge-critical { background: var(--red-bg); color: var(--red-text); }
     .badge-important { background: #fef9ec; color: var(--gold); }
     .badge-note { background: var(--bg); color: var(--text-dim); }
-
+    .model-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--text-dim);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      margin-left: 6px;
+      vertical-align: middle;
+      text-transform: uppercase;
+    }
     /* ── JUMP NAV ── */
     .jump-nav {
       display: flex;
@@ -311,7 +358,6 @@
       border-color: var(--green);
       color: var(--green-dark);
     }
-
     /* ── DONE BANNER ── */
     .done-banner {
       display: none;
@@ -329,7 +375,6 @@
       margin-bottom: 4px;
     }
     .done-banner-sub { font-size: 12px; color: rgba(255,255,255,.7); line-height: 1.5; }
-
     /* ── OWNER NOTE ── */
     .owner-note {
       background: var(--card);
@@ -345,14 +390,12 @@
     }
     .owner-note p + p { margin-top: 6px; }
     .owner-note strong { color: var(--text); }
-
     /* ── JUMP NAV ACTIVE ── */
     .jump-nav a.active {
       background: var(--green-pale);
       border-color: var(--green);
       color: var(--green-dark);
     }
-
     /* ── RESET ── */
     .reset-btn {
       display: flex; align-items: center; justify-content: center; gap: 6px;
@@ -368,7 +411,6 @@
     }
     .reset-btn:hover { border-color: var(--red-text); color: var(--red-text); background: var(--red-bg); }
     .reset-btn svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-
     .reset-confirm {
       display: none;
       align-items: center;
@@ -401,7 +443,6 @@
       cursor: pointer;
       font-family: 'Figtree', sans-serif;
     }
-
     .print-btn {
       display: flex;
       align-items: center;
@@ -434,11 +475,11 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
     @media print {
       #site-nav,
       .progress-bar-wrap,
       .jump-nav,
+      .model-filter,
       .sidebar,
       .reset-btn,
       .print-btn,
@@ -450,7 +491,6 @@
       .checklist-item { break-inside: avoid; }
       body { background: #fff; }
     }
-
     /* ── SIDEBAR ── */
     .sidebar { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 52px; }
     .sidebar-card {
@@ -485,11 +525,9 @@
     }
     .tip-text { font-size: 11.5px; color: var(--text-muted); line-height: 1.6; }
     .tip-text strong { color: var(--text); display: block; margin-bottom: 1px; font-size: 11.5px; }
-
     .sev-item { display: flex; align-items: flex-start; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--border); }
     .sev-item:last-child { border-bottom: none; }
     .sev-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
-
     .resource-row {
       display: flex; align-items: center; justify-content: space-between;
       padding: 8px 0; border-bottom: 1px solid var(--border); gap: 8px;
@@ -504,7 +542,6 @@
       flex-shrink: 0; transition: all .15s;
     }
     .resource-link:hover { background: var(--green); color: #fff; }
-
     .referral-card {
       background: var(--green-dark);
       border-radius: var(--radius);
@@ -522,7 +559,6 @@
       border-radius: 6px; text-decoration: none; transition: opacity .15s;
     }
     .referral-btn:hover { opacity: .9; }
-
     footer {
       max-width: 860px;
       margin: 0 auto;
@@ -533,12 +569,10 @@
       border-top: 1px solid var(--border);
       line-height: 1.7;
     }
-
     @media (max-width: 420px) {
       .checklist-item { padding: 12px 13px; gap: 10px; }
       .page-header { padding: 22px 16px 20px; }
     }
-
     .recall-entry-sm {
       border-left: 2px solid var(--border-hover);
       padding: 7px 10px;
@@ -555,33 +589,37 @@
   </style>
 </head>
 <body>
-
 <div id="site-nav"></div>
-
 <!-- PROGRESS -->
 <div class="progress-bar-wrap">
   <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
   <div class="progress-label" id="progressLabel">0 / 55</div>
   <div class="progress-pct" id="progressPct">0%</div>
 </div>
-
 <!-- HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
-    <div class="eyebrow">Delivery Day · 2026 R1T &amp; R1S</div>
+    <div class="eyebrow">Delivery Day · 2026 R1T, R1S &amp; R2</div>
     <h1 class="page-title">Rivian Delivery Checklist</h1>
-    <p class="page-sub">Tap each item before you sign. Photograph anything off, open a service ticket in the app, then enjoy the truck.</p>
+    <p class="page-sub">Tap each item before you sign. Photograph anything off, open a service ticket in the app, then enjoy your Rivian.</p>
     <div class="header-stats">
-      <div class="stat-pill"><strong>55</strong> items</div>
+      <div class="stat-pill"><strong id="itemsStat">55</strong> items</div>
       <div class="stat-pill"><strong>~45 min</strong> inspection</div>
       <div class="stat-pill"><strong>6</strong> sections</div>
     </div>
   </div>
 </div>
-
 <div class="page-body">
   <div class="main-col">
-
+    <!-- MODEL FILTER -->
+    <div class="model-filter" id="modelFilter" role="group" aria-label="Filter checklist by model">
+      <span class="model-filter-label">Model</span>
+      <button type="button" class="model-btn active" data-model="all" onclick="applyModelFilter('all')">All<span class="model-ct" data-ct="all"></span></button>
+      <button type="button" class="model-btn" data-model="r1t" onclick="applyModelFilter('r1t')">R1T<span class="model-ct" data-ct="r1t"></span></button>
+      <button type="button" class="model-btn" data-model="r1s" onclick="applyModelFilter('r1s')">R1S<span class="model-ct" data-ct="r1s"></span></button>
+      <button type="button" class="model-btn" data-model="r2" onclick="applyModelFilter('r2')">R2<span class="model-ct" data-ct="r2"></span></button>
+    </div>
+    <div class="model-hint" id="modelHint"></div>
     <!-- JUMP NAV -->
     <nav class="jump-nav">
       <a href="#sec-exterior">Exterior</a>
@@ -591,7 +629,6 @@
       <a href="#sec-roadtest">Road Test</a>
       <a href="#sec-docs">Recalls &amp; Docs</a>
     </nav>
-
     <!-- ══════════════════════════════════
          1. EXTERIOR — 14 items
     ═══════════════════════════════════════ -->
@@ -612,8 +649,7 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Vehicle matches your order confirmation</div>
@@ -621,8 +657,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Panel gaps consistent — doors, fenders, hood</div>
@@ -630,8 +665,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Paint — no chips, scratches, or swirl marks</div>
@@ -639,35 +673,31 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">All doors open, close, and latch smoothly</div>
-            <div class="check-note">Test every door: frunk, tailgate (R1T) or liftgate (R1S). A door that won't latch is worth escalating before signing.</div>
+            <div class="check-note">Test every door plus the frunk, tailgate (R1T), or liftgate (R1S / R2). A door that won't latch is worth escalating before signing.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Front turn signals — both sides flash correctly</div>
-            <div class="check-note">Recall 25V387000 (Rivian FSAM-1693) found some R1S/R1T front turn signals failed to illuminate. Test left and right through a full blink cycle. Safety issue — don't skip.</div>
+            <div class="check-note">Recall 26V-508 (Rivian FSAM-1833), an August 2026 expansion of the original 25V-387 campaign, covers 2025–2026 R1T/R1S whose front turn signals may fail to illuminate. Test left and right through a full blink cycle. Safety issue — don't skip.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Headlights — no condensation, all beam modes work</div>
-            <div class="check-note">Check for moisture inside the housing. Test DRL, low beam, and high beam. A low-beam cold-weather failure recall (25V537000) has affected some builds.</div>
+            <div class="check-note">Check for moisture inside the housing. Test DRL, low beam, and high beam. A cold-weather low-beam recall (25V-085 / FSAM-1612) affected some 2025 R1 builds.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Wheels — correct spec, no curb rash</div>
@@ -675,8 +705,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Tires — no sidewall damage, reasonable pressure</div>
@@ -684,8 +713,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Undercarriage — no shipping straps or transport blocks left on</div>
@@ -693,8 +721,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Reinforced underbody shield present (if on sticker)</div>
@@ -702,46 +729,40 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Frunk — opens, closes, seal intact, sub-tray present</div>
-            <div class="check-note">Check the rubber perimeter seal for gaps. Water intrusion has been reported. Confirm the under-tray is present — some 2026 deliveries arrived without it.</div>
+            <div class="check-note">Check the rubber perimeter seal for gaps. Water intrusion has been reported. Confirm the under-tray is present — some deliveries arrived without it.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Charge port opens, closes, and accepts a cable</div>
-            <div class="check-note">Test manually and via the Rivian app. All 2026 R1 models use a native NACS port — no adapter needed for Tesla Superchargers.</div>
+            <div class="check-note">Test manually and via the Rivian app. All current Rivian models use a native NACS port — no adapter needed for Tesla Superchargers.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Powered tonneau cover operates smoothly (R1T — if equipped)</div>
+            <div class="check-label">Powered tonneau cover operates smoothly <span class="model-tag">R1T</span></div>
             <div class="check-note">Standard on Tri and Quad; $2,000 option on Dual. Test open, close, and stop. Check the seal along all four edges.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'exterior')">
+        <div class="checklist-item" data-models="r1t" onclick="toggleCheck(this,'exterior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Gear Tunnel doors flush and latch easily (R1T)</div>
+            <div class="check-label">Gear Tunnel doors flush and latch easily <span class="model-tag">R1T</span></div>
             <div class="check-note">A known delivery issue: doors occasionally require significant force or sit proud of the body. Open and close both sides.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
       </div>
     </div>
-
     <!-- ══════════════════════════════════
          2. GLASS & WIPERS — 4 items
     ═══════════════════════════════════════ -->
@@ -762,8 +783,7 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'glass')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'glass')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Windshield — no chips, cracks, or edge delamination</div>
@@ -771,17 +791,15 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'glass')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'glass')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Side, rear, and pano roof glass — no chips or cracks</div>
-            <div class="check-note">Hairline cracks in the roof glass have been reported. Look from outside at an angle in daylight. Check the liftgate glass on R1S carefully.</div>
+            <div class="check-note">Hairline cracks in the roof glass have been reported. Look from outside at an angle in daylight. Check the liftgate glass on R1S and R2 carefully.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'glass')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'glass')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Electrochromic roof transitions fully (if equipped)</div>
@@ -789,19 +807,16 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'glass')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'glass')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Wipers — no streaking, auto mode activates with water</div>
-            <div class="check-note">Run wipers with washer fluid. Rain-sensing wipers are standard on all 2026 trims — verify auto mode triggers.</div>
+            <div class="check-note">Run wipers with washer fluid. Rain-sensing wipers are standard across the current lineup — verify auto mode triggers.</div>
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
       </div>
     </div>
-
     <!-- ══════════════════════════════════
          3. INTERIOR — 14 items
     ═══════════════════════════════════════ -->
@@ -822,17 +837,15 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Trim panels — no gaps, defects, or sharp seams</div>
-            <div class="check-note">Run your hand along all trim edges. A defect in the Dark Ash Wood trim was caught at my delivery this way.</div>
+            <div class="check-note">Run your hand along all trim edges. A defect in the wood/composite trim is easy to catch this way.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Seats — no tears, stains, or stitching defects on any row</div>
@@ -840,26 +853,23 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Powered seat adjustments work in every direction — both fronts</div>
-            <div class="check-note">Eight-way power front seats are standard. Test every axis on both. Also test second-row fold/slide (R1S) and third-row fold (R1S).</div>
+            <div class="check-note">Test every axis on both front seats. Also test second-row fold/slide, and third-row fold on R1S (if equipped).</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">All seat belts retract, latch, and lock under load — all rows</div>
-            <div class="check-note">Two active recalls: front D-ring anchor bolts (FSAM-1681) and second-row retractor bolts (FSAM-1795). Confirm both are closed on your VIN via NHTSA. Physically test every belt.</div>
+            <div class="check-note">Active recall: second-row seat belt retractor bolts (26V-009 / FSAM-1795). Confirm it's closed on your VIN via NHTSA, then physically test every belt in every row.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">No unusual odors</div>
@@ -867,17 +877,15 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Heat produces warm air within 5 minutes</div>
-            <div class="check-note">Set to max heat and time it. One of my delivery issues — the heater took over 20 minutes. Should be warm within 3–5 minutes.</div>
+            <div class="check-note">Set to max heat and time it. A heat pump should warm the cabin within 3–5 minutes — a much longer delay is worth flagging.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">A/C cools properly — listen for unusual fan noise at high speed</div>
@@ -885,44 +893,39 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Seat heating and ventilation work on both front seats</div>
-            <div class="check-note">Both heated and ventilated front seats are standard on all 2026 trim levels. Test all levels on both driver and passenger.</div>
+            <div class="check-label">Seat heating and ventilation work (as equipped)</div>
+            <div class="check-note">Heated front seats are standard across the lineup; ventilation availability varies by trim. Test all levels on both driver and passenger.</div>
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Rivian Torch present in driver's door — powers on</div>
-            <div class="check-note">A 1,000-lumen rechargeable flashlight stows in the driver's door frame. Press to eject and test. Frequently missing at delivery — verify before leaving.</div>
+            <div class="check-note">A 1,000-lumen rechargeable flashlight stows in the driver's door frame on R1. Press to eject and test. Frequently missing at delivery — verify before leaving.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Air Compressor Kit present with hose and adapters</div>
-            <div class="check-note">Standard on all 2026 R1T and R1S. Stowed in the gear tunnel (R1T) or cargo subfloor (R1S). Confirm hose and adapters are all present.</div>
+            <div class="check-note">Standard on 2026 R1T and R1S. Stowed in the gear tunnel (R1T) or cargo subfloor (R1S). Confirm hose and adapters are all present.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">J1772 AC adapter present — CCS1 DC adapter present (Quad only)</div>
-            <div class="check-note">All 2026 R1 vehicles include a J1772 adapter. Quad configurations add a CCS1 DC adapter. Confirm both are in the vehicle.</div>
+            <div class="check-note">2026 R1 vehicles include a J1772 adapter. Quad configurations add a CCS1 DC adapter. Confirm both are in the vehicle.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Standard inclusions present — floor mats, storage drawer, first aid kit</div>
@@ -930,8 +933,7 @@
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Any ordered accessories accounted for</div>
@@ -939,8 +941,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'interior')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'interior')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Spare tire kit present and installed (All-Terrain Package)</div>
@@ -948,10 +949,8 @@
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
       </div>
     </div>
-
     <!-- ══════════════════════════════════
          4. TECH & SOFTWARE — 10 items
     ═══════════════════════════════════════ -->
@@ -972,26 +971,23 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Main 15.6" touchscreen — no dead zones or backlight bleed</div>
-            <div class="check-note">Tap all corners and edges. Look for unresponsive areas or display anomalies.</div>
+            <div class="check-label">Center touchscreen — no dead zones or backlight bleed</div>
+            <div class="check-note">Tap all corners and edges. Look for unresponsive areas or display anomalies. (R1 uses a 15.6" display; R2's central screen differs.)</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Driver display and rear console screen both functioning</div>
-            <div class="check-note">Verify speed/range display correctly on the 12.3" cluster. The rear 6.8" console screen is standard on all 2026 trims — confirm it responds.</div>
+            <div class="check-label">Driver display functioning (and rear console screen, if equipped)</div>
+            <div class="check-note">Verify speed/range display correctly on the instrument cluster. On R1, confirm the rear console screen responds.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">No active warning lights or fault codes on delivery</div>
@@ -999,8 +995,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Rivian app paired — test remote lock/unlock and horn honk</div>
@@ -1008,8 +1003,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Phone key — proximity unlock and walk-away lock both work</div>
@@ -1017,44 +1011,39 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Both KeyCards test on B-pillar reader and center console reader</div>
-            <div class="check-note">2026 vehicles include two KeyCards — no key fob. Test each on both readers. Key fobs are a separate $250 purchase.</div>
+            <div class="check-note">2026 R1 vehicles include two KeyCards — no key fob. Test each on both readers. Key fobs are a separate $250 purchase.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
-            <div class="check-label">Software version at or above 2025.18.30 (Highway Assist recall)</div>
-            <div class="check-note">Check Settings → About. Recall 25V585000 required an OTA fix for Highway Assist. If your unit is below that version, ask the service center to update before you leave.</div>
+            <div class="check-label">No pending recall-related software updates</div>
+            <div class="check-note">Check Settings → About and confirm no recall-related software updates are pending in the Rivian app. An earlier Highway Assist software recall (25V585000) was remedied over the air; any current delivery ships on far newer software.</div>
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Bluetooth audio connects and all speakers work without distortion</div>
-            <div class="check-note">Pair your phone, play music at moderate volume, and check each zone. Test at higher volume if you have Rivian Premium Audio.</div>
+            <div class="check-note">Pair your phone, play music at moderate volume, and check each zone. Test at higher volume if you have an upgraded audio package.</div>
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">All USB-C ports functional — bring a cable and test</div>
-            <div class="check-note">R1T has 6 ports; R1S has 8. Test at least front console and rear seat ports. Dead ports are common enough to check quickly.</div>
+            <div class="check-note">Test front console and rear seat ports at minimum. Dead ports are common enough to check quickly. (R1T has 6; R1S has 8.)</div>
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'tech')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'tech')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Gear Guard camera feeds visible in app with clean images</div>
@@ -1062,10 +1051,8 @@
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
       </div>
     </div>
-
     <!-- ══════════════════════════════════
          5. ROAD TEST — 7 items
     ═══════════════════════════════════════ -->
@@ -1086,8 +1073,7 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Steering wheel centered when wheels are pointed straight</div>
@@ -1095,8 +1081,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Air suspension cycles through all height modes (if equipped)</div>
@@ -1104,8 +1089,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Vehicle tracks straight — no pull to one side</div>
@@ -1113,8 +1097,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Brakes — no grinding or pulsation; regen transitions smoothly</div>
@@ -1122,8 +1105,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Suspension — no clunks over bumps</div>
@@ -1131,8 +1113,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Steering feel — no vibration through the wheel while moving</div>
@@ -1140,8 +1121,7 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'roadtest')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'roadtest')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">No drivetrain whine or unusual noise under acceleration</div>
@@ -1149,10 +1129,8 @@
           </div>
           <span class="badge badge-important">Important</span>
         </div>
-
       </div>
     </div>
-
     <!-- ══════════════════════════════════
          6. RECALLS & DOCS — 6 items
     ═══════════════════════════════════════ -->
@@ -1173,17 +1151,15 @@
         </div>
       </div>
       <div class="items-wrap">
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">NHTSA VIN check completed — all recall campaigns closed</div>
-            <div class="check-note">Do this at nhtsa.gov/recalls the night before. Active campaigns on the 2026 platform include seat belts (FSAM-1681, FSAM-1795), turn signals (25V387000), HVDB ground strap (FSAM-1723), headlights (25V537000), and ADAS software (25V585000). Buying used? Also confirm the rear-suspension toe-link recall (26V003) — it applies to 2022–2025 R1S/R1T that had rear-suspension service before March 10, 2025, and NHTSA has an open investigation into toe-link bolt fractures affecting roughly 115,000 earlier R1 vehicles. Bring a screenshot.</div>
+            <div class="check-note">Do this at nhtsa.gov/recalls the night before. Current R1 campaigns include front turn signals (26V-508 / FSAM-1833, an Aug 2026 expansion of 25V-387), second-row seat belt retractors (26V-009 / FSAM-1795), the rear toe-link joint (26V-003 / FSAM-1794), and cold-weather headlamps (25V-085 / FSAM-1612). The live feed in the sidebar shows the current list by model year. Buying used? The toe-link recall covers 2022–2025 R1S/R1T that had rear-suspension service before March 10, 2025, and NHTSA has an open investigation into toe-link bolt fractures affecting roughly 115,000 earlier R1 vehicles. Bring a screenshot.</div>
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">HVDB recall confirmed closed on your VIN (2025-built units)</div>
@@ -1191,8 +1167,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Window sticker photographed or saved via Rivian Roamer</div>
@@ -1200,8 +1175,7 @@
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">VIN recorded for your records</div>
@@ -1209,8 +1183,7 @@
           </div>
           <span class="badge badge-note">Note</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Any delivery issues photographed with timestamps</div>
@@ -1218,8 +1191,7 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
-        <div class="checklist-item" onclick="toggleCheck(this,'docs')">
+        <div class="checklist-item" data-models="r1t r1s r2" onclick="toggleCheck(this,'docs')">
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="check-content">
             <div class="check-label">Service request filed in Rivian app for any noted issues</div>
@@ -1227,26 +1199,21 @@
           </div>
           <span class="badge badge-critical">Critical</span>
         </div>
-
       </div>
     </div>
-
     <!-- DONE BANNER -->
     <div class="done-banner" id="doneBanner">
       <div class="done-banner-title">&#10003; Inspection Complete</div>
       <div class="done-banner-sub">All items checked. File any open service requests before you drive away — then go enjoy your Rivian.</div>
     </div>
-
     <!-- OWNER NOTE -->
     <div class="owner-note">
-      <p><strong>From my delivery:</strong> Using a checklist caught four issues I would have missed — two misaligned doors, a defect in the Dark Ash Wood trim, and an HVAC problem where the heater never produced warm air. Rivian's app-based service request system made documenting everything straightforward.</p>
+      <p><strong>From my delivery:</strong> Using a checklist caught four issues I would have missed — two misaligned doors, a defect in the wood trim, and an HVAC problem where the heater never produced warm air. Rivian's app-based service request system made documenting everything straightforward.</p>
       <p>If you find issues, don't panic. Rivian expects some and the process for getting them fixed is clear. The key is documenting everything <em>before</em> you drive away.</p>
     </div>
-
     <div class="owner-note">
       <p>Have a suggestion to improve this checklist? If you've been through a Rivian delivery and noticed something missing, I'd love to hear it — <a href="mailto:rivianresource@gmail.com" style="color:var(--green); text-decoration:none;">rivianresource@gmail.com</a>.</p>
     </div>
-
     <button class="reset-btn" onclick="showResetConfirm()">
       <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-5"/></svg>
       Reset checklist
@@ -1260,19 +1227,16 @@
       <svg viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
       Print checklist
     </button>
-
   </div><!-- /main-col -->
-
   <!-- ══════════════════════════════════
        SIDEBAR
   ═══════════════════════════════════════ -->
   <div class="sidebar">
-
     <div class="sidebar-card">
       <div class="sidebar-label">Delivery day tips</div>
       <div class="tip-item">
         <div class="tip-num">1</div>
-        <div class="tip-text"><strong>Run your NHTSA VIN check first</strong>Do this at nhtsa.gov/recalls the night before. Multiple active recalls exist on the 2026 R1 platform.</div>
+        <div class="tip-text"><strong>Run your NHTSA VIN check first</strong>Do this at nhtsa.gov/recalls the night before. Multiple active recalls exist on the 2025–2026 R1 platform.</div>
       </div>
       <div class="tip-item">
         <div class="tip-num">2</div>
@@ -1291,14 +1255,12 @@
         <div class="tip-text"><strong>Open a service ticket before leaving</strong>Delivery-day tickets get prioritized over after-the-fact submissions.</div>
       </div>
     </div>
-
     <div class="sidebar-card">
       <div class="sidebar-label">Severity guide</div>
       <div class="sev-item"><span class="badge badge-critical" style="flex-shrink:0">Critical</span><span class="sev-desc">May warrant refusing delivery. Escalate to the delivery manager before signing.</span></div>
       <div class="sev-item"><span class="badge badge-important" style="flex-shrink:0">Important</span><span class="sev-desc">Document and file a service request before leaving.</span></div>
       <div class="sev-item"><span class="badge badge-note" style="flex-shrink:0">Note</span><span class="sev-desc">Minor — easily addressed at a future service visit.</span></div>
     </div>
-
     <div class="sidebar-card">
       <div class="sidebar-label">Useful links</div>
       <div class="resource-row">
@@ -1322,7 +1284,6 @@
         <a href="https://www.rivianforums.com/forum/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
       </div>
     </div>
-
     <div class="sidebar-card">
       <div class="sidebar-label" style="display:flex; align-items:center; gap:6px; margin-bottom:12px;">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -1332,17 +1293,13 @@
         <div style="font-size:12px; color:var(--text-dim);">Loading…</div>
       </div>
     </div>
-
     <div class="sidebar-card" style="text-align:center;">
       <div class="sidebar-label">Referral code</div>
       <p style="font-size:12px; color:var(--text-muted); line-height:1.6; margin-bottom:10px;">Use an owner referral code when ordering — both you and the referrer get Rivian Rewards points plus 3 months of free Adventure Network charging.</p>
       <div style="font-family:'DM Sans',sans-serif; font-size:20px; font-weight:800; color:var(--green); letter-spacing:.04em; margin-bottom:4px;">SCOTT4395475</div>
     </div>
-
   </div>
-
 </div><!-- /page-body -->
-
 <footer>
  <div class="footer-guides">
   <span class="footer-guides-label">Pages</span>
@@ -1356,59 +1313,78 @@
 </div>
   </div>
 </footer>
-
 <script>
-  const checked = { exterior:0, glass:0, interior:0, tech:0, roadtest:0, docs:0 };
+  const SECTIONS = ['exterior', 'glass', 'interior', 'tech', 'roadtest', 'docs'];
+  let currentModel = 'all';
 
-  const sectionCounts = {};
-  Object.keys(checked).forEach(s => {
-    sectionCounts[s] = document.querySelectorAll('#sec-' + s + ' .checklist-item').length;
-  });
-  const TOTAL = Object.values(sectionCounts).reduce((a, b) => a + b, 0);
+  const MODEL_HINTS = {
+    all: 'Showing all items. Pick your model to hide checks that don’t apply to it.',
+    r1t: 'R1T (truck): includes the tonneau cover and gear tunnel checks.',
+    r1s: 'R1S (SUV): tonneau and gear tunnel checks are hidden; third-row/liftgate checks apply.',
+    r2:  'R2: R1-only recalls, gear tunnel, tonneau, and R1-specific equipment are hidden. R2-specific checks will be added as owner data grows.'
+  };
 
-  function toggleCheck(item, section) {
+  function itemMatches(item, model) {
+    if (model === 'all') return true;
+    const m = (item.getAttribute('data-models') || '').split(/\s+/);
+    return m.includes(model);
+  }
+
+  function recompute() {
+    let totalVisible = 0, totalChecked = 0;
+    SECTIONS.forEach(s => {
+      const sec = document.getElementById('sec-' + s);
+      if (!sec) return;
+      const items = [...sec.querySelectorAll('.checklist-item')];
+      let vis = 0, chk = 0;
+      items.forEach(it => {
+        const show = itemMatches(it, currentModel);
+        it.classList.toggle('hidden-by-filter', !show);
+        if (show) { vis++; if (it.classList.contains('checked')) chk++; }
+      });
+      sec.classList.toggle('hidden-by-filter', vis === 0);
+      const pe = document.getElementById('prog-' + s);
+      if (pe) pe.textContent = chk + '/' + vis;
+      totalVisible += vis; totalChecked += chk;
+    });
+    const pct = totalVisible ? Math.round((totalChecked / totalVisible) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = totalChecked + ' / ' + totalVisible;
+    document.getElementById('progressPct').textContent = pct + '%';
+    const itemsStat = document.getElementById('itemsStat');
+    if (itemsStat) itemsStat.textContent = totalVisible;
+    const banner = document.getElementById('doneBanner');
+    if (totalVisible > 0 && totalChecked === totalVisible) banner.classList.add('visible');
+    else banner.classList.remove('visible');
+  }
+
+  function toggleCheck(item) {
     item.classList.toggle('checked');
-    checked[section] = document.querySelectorAll('#sec-' + section + ' .checklist-item.checked').length;
-    document.getElementById('prog-' + section).textContent = checked[section] + '/' + sectionCounts[section];
-    updateProgress();
+    recompute();
     saveState();
   }
 
-  function updateProgress() {
-    const done = Object.values(checked).reduce((a, b) => a + b, 0);
-    const pct = Math.round((done / TOTAL) * 100);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = done + ' / ' + TOTAL;
-    document.getElementById('progressPct').textContent = pct + '%';
-    const banner = document.getElementById('doneBanner');
-    if (done === TOTAL) banner.classList.add('visible');
-    else banner.classList.remove('visible');
+  function applyModelFilter(model) {
+    currentModel = model;
+    document.querySelectorAll('.model-btn').forEach(b =>
+      b.classList.toggle('active', b.getAttribute('data-model') === model)
+    );
+    const hint = document.getElementById('modelHint');
+    if (hint) hint.textContent = MODEL_HINTS[model] || '';
+    recompute();
   }
 
   function toggleSection(id) {
     document.getElementById('sec-' + id).classList.toggle('collapsed');
   }
-
-  function showResetConfirm() {
-    document.getElementById('resetConfirm').classList.add('visible');
-  }
-
-  function hideResetConfirm() {
-    document.getElementById('resetConfirm').classList.remove('visible');
-  }
-
+  function showResetConfirm() { document.getElementById('resetConfirm').classList.add('visible'); }
+  function hideResetConfirm() { document.getElementById('resetConfirm').classList.remove('visible'); }
   function confirmReset() {
     hideResetConfirm();
     document.querySelectorAll('.checklist-item.checked').forEach(el => el.classList.remove('checked'));
-    Object.keys(checked).forEach(k => checked[k] = 0);
-    Object.keys(sectionCounts).forEach(s => {
-      const el = document.getElementById('prog-' + s);
-      if (el) el.textContent = '0/' + sectionCounts[s];
-    });
-    updateProgress();
+    recompute();
     clearState();
   }
-
   function saveState() {
     const state = [];
     document.querySelectorAll('.checklist-item').forEach((el) => {
@@ -1416,48 +1392,40 @@
     });
     localStorage.setItem('rivian-checklist', JSON.stringify(state));
   }
-
-  function clearState() {
-    localStorage.removeItem('rivian-checklist');
-  }
-
+  function clearState() { localStorage.removeItem('rivian-checklist'); }
   function restoreState() {
     const saved = localStorage.getItem('rivian-checklist');
     if (!saved) return;
-    const state = JSON.parse(saved);
+    let state;
+    try { state = JSON.parse(saved); } catch (e) { return; }
     document.querySelectorAll('.checklist-item').forEach((el, i) => {
-      if (state[i] === 1) {
-        el.classList.add('checked');
-        const section = el.closest('.checklist-section').id.replace('sec-', '');
-        checked[section] = (checked[section] || 0) + 1;
-      }
+      if (state[i] === 1) el.classList.add('checked');
     });
-    Object.keys(checked).forEach(s => {
-      const el = document.getElementById('prog-' + s);
-      if (el) el.textContent = checked[s] + '/' + sectionCounts[s];
-    });
-    updateProgress();
   }
 
+  // Model filter counts
+  document.querySelectorAll('.model-ct').forEach(el => {
+    const model = el.getAttribute('data-ct');
+    let n = 0;
+    document.querySelectorAll('.checklist-item').forEach(it => { if (itemMatches(it, model)) n++; });
+    el.textContent = n;
+  });
+
   restoreState();
+  applyModelFilter('all');
 
   (function initJumpNav() {
-    const sections = ['exterior', 'glass', 'interior', 'tech', 'roadtest', 'docs'];
     const links = {};
-    sections.forEach(s => {
+    SECTIONS.forEach(s => {
       links[s] = document.querySelector('.jump-nav a[href="#sec-' + s + '"]');
     });
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const id = entry.target.id.replace('sec-', '');
-        if (links[id]) {
-          links[id].classList.toggle('active', entry.isIntersecting);
-        }
+        if (links[id]) links[id].classList.toggle('active', entry.isIntersecting);
       });
     }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
-
-    sections.forEach(s => {
+    SECTIONS.forEach(s => {
       const el = document.getElementById('sec-' + s);
       if (el) observer.observe(el);
     });
@@ -1472,6 +1440,7 @@
       { label: '2025 R1S', make: 'Rivian', model: 'R1S', year: '2025' },
       { label: '2026 R1T', make: 'Rivian', model: 'R1T', year: '2026' },
       { label: '2025 R1T', make: 'Rivian', model: 'R1T', year: '2025' },
+      { label: '2026 R2', make: 'Rivian', model: 'R2', year: '2026' },
     ];
     try {
       const results = await Promise.all(vehicles.map(v =>
@@ -1489,9 +1458,8 @@
           return true;
         })
       })).filter(v => v.recalls.length > 0);
-
       if (grouped.length === 0) {
-        container.innerHTML = `<p style="font-size:11px; color:var(--text-dim);">No open recalls found for 2025–2026 R1S or R1T.</p>`;
+        container.innerHTML = `<p style="font-size:11px; color:var(--text-dim);">No open recalls found for 2025–2026 R1S, R1T, or R2.</p>`;
         return;
       }
       container.innerHTML = grouped.map(v => `
