@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +10,12 @@
   <meta property="og:description" content="Track Rivian software updates — version history, release notes, and the Hey Rivian voice assistant command guide for R1S and R1T owners."/>
   <meta property="og:url" content="https://www.rivianresource.com/software/" />
   <meta property="og:type" content="website"/>
-
   <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@600;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "aabd2c264abb41589ccfd2223c79ae42"}'></script>
-
   <style>
     .sw-layout {
       display: grid;
@@ -27,15 +24,12 @@
       align-items: start;
       padding: 32px 0 56px;
     }
-
     @media (max-width: 860px) {
       .sw-layout { grid-template-columns: 1fr; }
       .sw-sidebar { display: none; }
     }
-
     .sw-main { display: flex; flex-direction: column; gap: 0; }
     .sw-sidebar { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
-
     /* ─── PAGE JUMP NAV ─── */
     .page-jump-nav {
       display: flex;
@@ -62,7 +56,6 @@
       color: var(--green);
       background: var(--green-pale);
     }
-
     /* ─── CURRENT VERSION HERO ─── */
     .current-version {
       background: var(--green-dark);
@@ -75,14 +68,41 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .cv-label { font-size: 11px; font-weight: 600; color: #9FE1CB; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
     .cv-version { font-family: 'DM Sans', sans-serif; font-size: 40px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
     .cv-date { font-size: 13px; color: rgba(255,255,255,0.55); }
     .cv-highlights { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
     .cv-highlight { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.5; }
     .cv-highlight::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 7px; }
-
+    /* ─── PLATFORM FILTER ─── */
+    .plat-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .plat-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Figtree', sans-serif;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: border-color .15s, color .15s, background .15s;
+    }
+    .plat-btn:hover { border-color: var(--green); color: var(--green); }
+    .plat-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
+    .plat-btn.active .plat-count { color: rgba(255,255,255,0.75); }
+    .plat-count { font-size: 11px; opacity: .8; margin-left: 5px; font-weight: 700; }
+    .plat-note {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
     /* ─── ASSISTANT SECTION ─── */
     .assistant-section {
       background: var(--bg-card);
@@ -161,7 +181,6 @@
       color: var(--text);
     }
     .activate-method svg { width: 14px; height: 14px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
-
     /* Command category grid */
     .command-grid {
       display: grid;
@@ -205,7 +224,6 @@
       padding: 1px 6px;
       border-radius: 4px;
     }
-
     /* Known issues */
     .assistant-issues {
       border: 1px solid rgba(153,27,27,.15);
@@ -232,7 +250,6 @@
     }
     .issue-item:last-child { margin-bottom: 0; }
     .issue-dot { width: 5px; height: 5px; border-radius: 50%; background: #991b1b; flex-shrink: 0; margin-top: 7px; opacity: .6; }
-
     /* ─── UPDATE ENTRY ─── */
     .update-entry {
       border-left: 2px solid var(--border);
@@ -254,7 +271,6 @@
     }
     .update-entry.featured::before { background: var(--green); border-color: var(--green); }
     .update-entry:last-child { padding-bottom: 0; }
-
     .update-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -265,7 +281,6 @@
     .update-entry.minor .update-card { padding: 14px 18px; }
     .update-entry.minor .update-version { font-size: 16px; }
     .update-entry.minor .update-change { font-size: 13px; }
-
     .update-header {
       display: flex;
       align-items: flex-start;
@@ -285,20 +300,18 @@
     .tag-rolling { background: #fef3e2; color: var(--gold); border: 1px solid rgba(186,117,23,0.2); }
     .tag-released { background: var(--green-pale); color: var(--green); }
     .tag-bugs { background: #fef2f2; color: #991b1b; border: 1px solid rgba(153,27,27,0.15); }
-
+    .tag-plat { background: var(--bg-secondary); color: var(--text-muted); border: 1px solid var(--border); }
     .update-changes { display: flex; flex-direction: column; gap: 8px; }
     .update-change { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
     .change-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
     .dot-feature { background: var(--green); }
     .dot-bug     { background: #A32D2D; }
-
     .update-bugs { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
     .bugs-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: #A32D2D; margin-bottom: 8px; }
     .bug-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 5px; }
     .bug-item:last-child { margin-bottom: 0; }
     .bug-dot { width: 5px; height: 5px; border-radius: 50%; background: #A32D2D; flex-shrink: 0; margin-top: 7px; opacity: 0.6; }
     .first-spotted { font-size: 11px; color: var(--text-dim); margin-top: 3px; }
-
     /* ─── MOBILE STRIP ─── */
     .mobile-version-strip {
       display: none;
@@ -328,7 +341,6 @@
     .mobile-version-pill:hover { border-color: var(--green); color: var(--green); }
     .mobile-version-pill.current { background: var(--green-pale); border-color: var(--green); color: var(--green); }
     @media (max-width: 860px) { .mobile-version-strip { display: flex; } }
-
     /* ─── SIDEBAR ─── */
     .vq-row {
       display: flex;
@@ -347,9 +359,7 @@
   </style>
 </head>
 <body>
-
   <div id="site-nav"></div>
-
   <div class="referral-strip">
     <div class="strip-inner" style="justify-content:center;max-width:1160px;margin:0 auto;">
       <span class="strip-label">Referral code</span>
@@ -363,29 +373,23 @@
       <span class="strip-copied" id="stripCopied">&#10003; Copied!</span>
     </div>
   </div>
-
   <div class="page-header">
     <div class="container">
       <div class="page-eyebrow">Owner Resource &middot; Updated for 2026</div>
       <h1 class="page-title">Rivian Software Updates</h1>
-      <p class="page-sub">OTA update history for R1S and R1T — version numbers, release dates, Gen 1 vs Gen 2 applicability, and the Hey Rivian voice assistant guide. Updated as new versions roll out.</p>
+      <p class="page-sub">OTA update history for R1 (Gen 1 &amp; Gen 2) and R2 — version numbers, release dates, platform applicability, and the Hey Rivian voice assistant guide. Updated as new versions roll out.</p>
     </div>
   </div>
-
   <div class="mobile-version-strip" id="mobileVersionStrip"></div>
-
   <div class="container">
     <div class="sw-layout">
-
       <div class="sw-main">
-
         <!-- PAGE JUMP -->
         <nav class="page-jump-nav">
           <a href="#v-current" class="page-jump-pill active">Current version</a>
           <a href="#assistant" class="page-jump-pill">Hey Rivian</a>
           <a href="#history" class="page-jump-pill">Update history</a>
         </nav>
-
         <!-- CURRENT VERSION HERO -->
         <div class="current-version" id="v-current">
           <div>
@@ -396,7 +400,6 @@
             <div class="cv-highlights"></div>
           </div>
         </div>
-
         <!-- HEY RIVIAN ASSISTANT — teaser linking to full guide -->
         <div class="card" id="assistant" style="padding:0;overflow:hidden;border-color:rgba(29,158,117,0.25);">
           <div style="background:var(--green-dark);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
@@ -427,9 +430,16 @@
             </div>
           </div>
         </div>
-
         <!-- UPDATE HISTORY -->
         <div id="history">
+          <!-- PLATFORM FILTER -->
+          <div class="plat-filter" id="platFilter" role="group" aria-label="Filter updates by platform">
+            <button type="button" class="plat-btn active" data-platform="all">All<span class="plat-count" data-count="all"></span></button>
+            <button type="button" class="plat-btn" data-platform="gen1">R1 Gen 1<span class="plat-count" data-count="gen1"></span></button>
+            <button type="button" class="plat-btn" data-platform="gen2">R1 Gen 2<span class="plat-count" data-count="gen2"></span></button>
+            <button type="button" class="plat-btn" data-platform="r2">R2<span class="plat-count" data-count="r2"></span></button>
+          </div>
+          <div class="plat-note" id="platNote"></div>
           <div style="margin-bottom:16px;">
             <input
               type="text"
@@ -442,12 +452,9 @@
           <div id="softwareTimeline"></div>
           <div id="timelineNoResults" style="display:none; padding:20px; text-align:center; color:var(--text-dim); font-size:14px;">No updates match that search.</div>
         </div>
-
       </div>
-
       <!-- SIDEBAR -->
       <div class="sw-sidebar">
-
         <div class="card" style="padding:20px;">
           <div class="section-label">Jump to</div>
           <a href="#v-current" class="vq-row" style="border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:4px;">
@@ -465,20 +472,17 @@
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);padding:10px 0 6px;">Version history</div>
           <div id="softwareQuickJump"></div>
         </div>
-
         <div class="card" style="padding:20px;">
           <div class="section-label">Check your version</div>
           <p style="font-size:13px; color:var(--text-muted); line-height:1.65; margin-bottom:10px;">Settings &rarr; About &rarr; Software Version</p>
           <p style="font-size:13px; color:var(--text-muted); line-height:1.65;">Updates install automatically when plugged in, or can be triggered manually from the Rivian app.</p>
         </div>
-
         <div class="card" style="padding:20px; text-align:center;">
           <div class="section-label">Referral code</div>
           <p style="font-size:12px; color:var(--text-muted); line-height:1.6; margin-bottom:10px;">Use an owner code when ordering — earn Rewards points and 3 months of free Adventure Network charging.</p>
           <div style="font-family:'DM Sans',sans-serif; font-size:20px; font-weight:800; color:var(--green); letter-spacing:.04em; margin-bottom:12px;">SCOTT4395475</div>
           <a href="/rivian-referral-code/" style="display:block;text-align:center;background:var(--green);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:12px;padding:8px 14px;border-radius:6px;text-decoration:none;">See referral details</a>
         </div>
-
         <div class="card" style="padding:20px;">
           <div class="section-label">Related</div>
           <div class="resource-row">
@@ -494,11 +498,9 @@
             <a href="https://www.reddit.com/r/Rivian/" target="_blank" rel="noopener noreferrer" class="resource-link">Visit</a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
   <footer>
     <div style="max-width:1160px; margin:0 auto; padding:0 20px;">
       <img src="/images/logo.svg" alt="Rivian Resource">
@@ -515,16 +517,65 @@
       </div>
     </div>
   </footer>
-
 <script src="/nav-init.js"></script>
-
 <script>
+  // ─── STATE ───
+  let allUpdates = [];
+  let currentPlatform = 'all';
+  let currentQuery = '';
+
+  const PLATFORM_LABELS = {
+    all:  'All platforms',
+    gen1: 'R1 (Gen 1)',
+    gen2: 'R1 (Gen 2)',
+    r2:   'R2'
+  };
+  const PLATFORM_NOTES = {
+    all:  'Showing every release across R1 (Gen 1 &amp; Gen 2) and R2. R1 Gen 1 and Gen 2 share the same numbered releases; use the filters to see the features that apply to each.',
+    gen1: 'R1 Gen 1 vehicles. Gen 2-only features are hidden from each release below.',
+    gen2: 'R1 Gen 2 vehicles. Gen 1-only features are hidden from each release below.',
+    r2:   'R2 runs its own software line, separate from R1. These versions do not install on R1 vehicles.'
+  };
+
+  // ─── HELPERS ───
+  function platformMatch(update, platform) {
+    if (platform === 'all') return true;
+    return Array.isArray(update.platforms) && update.platforms.includes(platform);
+  }
+
+  // Returns the highlights that apply under the selected platform.
+  // In a Gen 1 view we hide highlights tagged "(Gen 2)", and vice versa.
+  function visibleHighlights(update, platform) {
+    const items = update.highlights || [];
+    if (platform === 'gen1') return items.filter(h => !/\(gen\s*2\)/i.test(h));
+    if (platform === 'gen2') return items.filter(h => !/\(gen\s*1\)/i.test(h));
+    return items;
+  }
+
+  // A release is shown for a platform only if it targets that platform AND
+  // still has at least one highlight after gen-level filtering (no empty cards).
+  function getFilteredUpdates(platform) {
+    return allUpdates.filter(u =>
+      platformMatch(u, platform) && visibleHighlights(u, platform).length > 0
+    );
+  }
+
+  function platformTag(update) {
+    const p = update.platforms || [];
+    let label;
+    if (p.includes('r2')) label = 'R2';
+    else if (p.includes('gen1') && p.includes('gen2')) label = 'R1 · Gen 1 & 2';
+    else if (p.includes('gen2')) label = 'R1 · Gen 2';
+    else if (p.includes('gen1')) label = 'R1 · Gen 1';
+    else return '';
+    return `<span class="update-tag tag-plat">${label}</span>`;
+  }
+
   function rolloutTag(rollout) {
     if (!rollout) return '';
     if (rollout === 'Rolling out') return '<span class="update-tag tag-rolling">Rolling out</span>';
     return '<span class="update-tag tag-released">Released</span>';
   }
-
   function bugsHtml(bugs) {
     if (!bugs || !bugs.length) return '';
     return `
@@ -533,26 +584,35 @@
         ${bugs.map(b => `<div class="bug-item"><span class="bug-dot"></span>${b}</div>`).join('')}
       </div>`;
   }
-
   function firstSpottedHtml(update) {
     if (!update.firstSpotted || update.firstSpotted === update.date) return '';
     return `<div class="first-spotted">First spotted: ${update.firstSpotted}</div>`;
   }
 
-  function loadLiveSoftwareVersion(updates) {
-    const latest = updates[0];
+  // ─── HERO ───
+  function loadLiveSoftwareVersion(latest, platform) {
+    const labelEl = document.querySelector('.cv-label');
+    if (labelEl) labelEl.textContent = platform === 'all' ? 'Current version' : 'Latest — ' + PLATFORM_LABELS[platform];
+    if (!latest) {
+      document.querySelector('.cv-version').textContent = '—';
+      document.querySelector('.cv-date').textContent = 'No releases for this platform yet';
+      const hr = document.querySelector('.cv-rollout'); if (hr) hr.innerHTML = '';
+      document.querySelector('.cv-highlights').innerHTML = '';
+      return;
+    }
     document.querySelector('.cv-version').textContent = latest.version;
     document.querySelector('.cv-date').textContent = latest.date;
     const heroRollout = document.querySelector('.cv-rollout');
     if (heroRollout) heroRollout.innerHTML = rolloutTag(latest.rollout);
-    document.querySelector('.cv-highlights').innerHTML = latest.highlights
+    document.querySelector('.cv-highlights').innerHTML = visibleHighlights(latest, platform)
       .map(item => `<div class="cv-highlight">${item}</div>`).join('');
   }
 
-  function renderSoftwareTimeline(updates) {
+  // ─── TIMELINE ───
+  function renderSoftwareTimeline(list, platform) {
     const timeline = document.getElementById('softwareTimeline');
     if (!timeline) return;
-    timeline.innerHTML = updates.slice(1).map((update, index) => `
+    timeline.innerHTML = list.slice(1).map((update, index) => `
       <div class="update-entry ${index === 0 ? 'featured' : ''} ${update.type === 'minor' ? 'minor' : ''}" id="v${update.version.replaceAll('.', '-')}">
         <div class="update-card">
           <div class="update-header">
@@ -564,12 +624,13 @@
             </div>
             <div class="update-tags">
               <span class="update-tag ${update.type === 'major' ? 'tag-major' : 'tag-minor'}">${update.type}</span>
+              ${platformTag(update)}
               ${rolloutTag(update.rollout)}
               ${update.bugs && update.bugs.length ? `<span class="update-tag tag-bugs">${update.bugs.length} issue${update.bugs.length > 1 ? 's' : ''}</span>` : ''}
             </div>
           </div>
           <div class="update-changes">
-            ${update.highlights.map(item => `
+            ${visibleHighlights(update, platform).map(item => `
               <div class="update-change"><span class="change-dot dot-feature"></span>${item}</div>
             `).join('')}
           </div>
@@ -579,10 +640,12 @@
     `).join('');
   }
 
-  function renderQuickJump(updates) {
+  // ─── QUICK JUMP (sidebar) ───
+  function renderQuickJump(list) {
     const quickJump = document.getElementById('softwareQuickJump');
     if (!quickJump) return;
-    quickJump.innerHTML = updates.map((update, index) => `
+    if (!list.length) { quickJump.innerHTML = '<div class="vq-date" style="padding:8px 0;">No releases for this platform.</div>'; return; }
+    quickJump.innerHTML = list.map((update, index) => `
       <a href="${index === 0 ? '#v-current' : '#v' + update.version.replaceAll('.', '-')}" class="vq-row">
         <div>
           <div class="vq-version">${update.version}</div>
@@ -593,7 +656,28 @@
     `).join('');
   }
 
+  // ─── MOBILE STRIP ───
+  function renderMobileStrip(list) {
+    const strip = document.getElementById('mobileVersionStrip');
+    if (!strip) return;
+    strip.innerHTML = list.map((update, index) => `
+      <a href="${index === 0 ? '#v-current' : '#v' + update.version.replaceAll('.', '-')}" class="mobile-version-pill ${index === 0 ? 'current' : ''}">
+        ${update.version}
+      </a>
+    `).join('');
+  }
+
+  // ─── COUNTS ON FILTER BUTTONS ───
+  function renderFilterCounts() {
+    document.querySelectorAll('.plat-count').forEach(el => {
+      const platform = el.getAttribute('data-count');
+      el.textContent = getFilteredUpdates(platform).length;
+    });
+  }
+
+  // ─── TEXT SEARCH (operates on rendered cards) ───
   function filterTimeline(query) {
+    currentQuery = query;
     const q = query.toLowerCase().trim();
     document.querySelectorAll('.update-entry').forEach(entry => {
       entry.style.display = (!q || entry.textContent.toLowerCase().includes(q)) ? '' : 'none';
@@ -603,15 +687,18 @@
     if (noResults) noResults.style.display = (!q || anyVisible) ? 'none' : 'block';
   }
 
-  function initQuickJumpObserver(updates) {
+  // ─── QUICK JUMP SCROLL HIGHLIGHTING ───
+  let quickJumpObserver = null;
+  function initQuickJumpObserver(list) {
+    if (quickJumpObserver) { quickJumpObserver.disconnect(); quickJumpObserver = null; }
     const links = {};
-    updates.forEach((update, index) => {
+    list.forEach((update, index) => {
       const anchor = index === 0 ? 'v-current' : 'v' + update.version.replaceAll('.', '-');
       const el = document.getElementById(anchor);
       const link = document.querySelector(`.vq-row[href="#${anchor}"]`);
       if (el && link) links[anchor] = { el, link };
     });
-    const observer = new IntersectionObserver((entries) => {
+    quickJumpObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const anchor = entry.target.id;
         if (links[anchor]) {
@@ -620,24 +707,41 @@
         }
       });
     }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
-    Object.values(links).forEach(({ el }) => observer.observe(el));
+    Object.values(links).forEach(({ el }) => quickJumpObserver.observe(el));
   }
 
+  // ─── APPLY A PLATFORM FILTER ───
+  function applyPlatform(platform) {
+    currentPlatform = platform;
+    const list = getFilteredUpdates(platform);
+
+    document.querySelectorAll('.plat-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-platform') === platform);
+    });
+    const note = document.getElementById('platNote');
+    if (note) note.innerHTML = PLATFORM_NOTES[platform] || '';
+
+    loadLiveSoftwareVersion(list[0], platform);
+    renderSoftwareTimeline(list, platform);
+    renderQuickJump(list);
+    renderMobileStrip(list);
+    initQuickJumpObserver(list);
+
+    // Re-apply any active text search to the freshly rendered cards.
+    filterTimeline(currentQuery);
+  }
+
+  // ─── LOAD ───
   async function loadAllSoftwareData() {
     try {
       const data = await fetch('/software/updates.json?v=' + Date.now()).then(r => r.json());
-      loadLiveSoftwareVersion(data);
-      renderSoftwareTimeline(data);
-      renderQuickJump(data);
-      initQuickJumpObserver(data);
-      const strip = document.getElementById('mobileVersionStrip');
-      if (strip) {
-        strip.innerHTML = data.map((update, index) => `
-          <a href="${index === 0 ? '#v-current' : '#v' + update.version.replaceAll('.', '-')}" class="mobile-version-pill ${index === 0 ? 'current' : ''}">
-            ${update.version}
-          </a>
-        `).join('');
-      }
+      allUpdates = Array.isArray(data) ? data : [];
+      renderFilterCounts();
+      applyPlatform('all');
+
+      document.querySelectorAll('.plat-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyPlatform(btn.getAttribute('data-platform')));
+      });
     } catch(e) {
       console.error('Failed to load software data:', e);
       document.querySelector('.cv-version').textContent = 'Unavailable';
@@ -646,7 +750,6 @@
       if (timeline) timeline.innerHTML = `<div class="card" style="padding:20px;">Unable to load OTA history.</div>`;
     }
   }
-
   document.addEventListener('DOMContentLoaded', () => {
     loadAllSoftwareData();
   });
