@@ -1,90 +1,27 @@
 [
   {
-    "version": "2026.31",
-    "name": "Introducing RivianOS 2",
-    "date": "September 4, 2026",
-    "type": "major",
-    "platforms": ["gen1", "gen2", "r2"],
-    "highlights": [
-      "RivianOS 2 — full redesign unifying navigation, media, energy, and quick controls, now rolling out across R1 (Gen 1 & Gen 2) and R2",
-      "Enhanced Media app — dynamic visuals and improved list views, with Apple Music, Spotify, TuneIn, and TIDAL",
-      "Google Maps and Waze now display police presence and speed camera alerts",
-      "Mobile Live Trip — share live trip progress with multiple drivers from the app",
-      "Redesigned Settings with universal search and context-aware quick access",
-      "New Weather app — forecasts and air quality via the center display or navigation"
-    ],
-    "rollout": "Rolling out"
-  },
-  {
-    "version": "2026.23",
-    "name": "Smarter Moves",
-    "date": "August 6, 2026",
-    "type": "major",
-    "platforms": ["gen1", "gen2"],
-    "highlights": [
-      "Lane Change on Command now works on more roads beyond freeways while Universal Hands-Free is engaged (Gen 2)",
-      "Autonomy view now displays traffic lights and cones in the driver display for better situational awareness (Gen 2)",
-      "Natural language charging station search — e.g. \"charging options near Yellowstone\"",
-      "Rivian Assistant Memory — stores driver preferences and conversation context (off by default)",
-      "Rivian Assistant can now draft service requests from a description of the issue"
-    ],
-    "rollout": "Released"
-  },
-  {
-    "version": "2026.24",
-    "name": "",
-    "date": "July 15, 2026",
-    "type": "major",
-    "platforms": ["r2"],
-    "highlights": [
-      "Lane Change on Command now works beyond freeways while Universal Hands-Free is engaged",
-      "Autonomy view now shows traffic lights, stop signs, and cones for better situational awareness",
-      "Pet Comfort — maintains a controlled cabin temperature when you leave the vehicle",
-      "Gear Guard — camera-based security records road incidents and detects motion around the parked vehicle",
-      "Launch Mode — track-focused maximum acceleration with 0–60 mph race statistics"
-    ],
-    "rollout": "Released"
-  },
-  {
-    "version": "2026.20",
-    "name": "Hello R2",
-    "date": "June 28, 2026",
-    "type": "major",
-    "platforms": ["r2"],
-    "highlights": [
-      "RivianOS 2.0 — redesigned operating system with unified navigation, media, and energy controls (R2 debut software)",
-      "Haptic Halo steering wheel controls with tactile feedback for climate, media, autonomy, and drive modes",
-      "Universal Hands-Free on 3.5M+ miles of North American roads with customizable drive styles and co-steering",
-      "Lane Change on Command — driver-initiated highway lane changes via turn signal with 360° perception",
-      "Google Maps navigation with integrated charging stops across multiple charging networks"
-    ],
-    "rollout": "Released"
-  },
-  {
     "version": "2026.15",
     "name": "Hey Rivian",
     "date": "May 11, 2026",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Rivian Assistant — AI voice assistant activated by \"Hey Rivian\" or long-pressing the left thumbwheel",
       "Profile PIN security — lock your driver profile with a 4–6 digit PIN via the app",
       "Current road name now displayed on the navigation map",
       "Improved defrost for front driver assistance cameras",
-      "Improved Lane Change on Command and Universal Hands-Free smoothness (Gen 2)"
+      "Gen 2: Improved Lane Change on Command and Universal Hands-Free smoothness"
     ],
-    "rollout": "Released"
+    "rollout": "Rolling out"
   },
   {
     "version": "2026.07",
     "name": "Improved Navigation",
     "date": "April 9, 2026",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Rear Defrost now automatically activates front wiper heating element",
       "Apple Music adds Dolby Audio support and adaptive Streaming Quality setting",
-      "Fixed range estimate fluctuations and reduced highway steering wheel vibrations (Gen 2)",
+      "Gen 2: Fixed range estimate fluctuations and reduced highway steering wheel vibrations",
       "Improved general infotainment stability and app launch speed"
     ],
     "rollout": "Released"
@@ -94,7 +31,6 @@
     "name": "Cold Snap",
     "date": "February 19, 2026",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Cold weather range loss notifications — battery shading shows unavailable energy",
       "Apple Watch companion app for remote vehicle access and control",
@@ -109,7 +45,6 @@
     "name": "Wide Open",
     "date": "December 18, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Driver display now customizable — swap between Driver Assistance and Maps views",
       "Universal Hands-Free expands to 3.5M+ miles of North American roads (Gen 2)",
@@ -124,7 +59,6 @@
     "name": "Spooky Swamp",
     "date": "October 21, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Climate Hold — runs climate for a set time after exiting",
       "Auto cabin ventilation on warm days to prevent extreme cabin temps",
@@ -139,13 +73,12 @@
     "name": "Energy Unlocked",
     "date": "September 25, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Co-Steer — adjust position within lane while Highway Assist is active (Gen 2)",
       "Enhanced Highway Assist availability up 50% on urban/suburban roads (Gen 2)",
       "Smart Charging Schedule reduces home charging costs by 20%+ automatically",
       "Custom equalizer profiles — save and rename audio presets",
-      "Refined bass and Dolby Atmos blending improvements (Gen 2)"
+      "Gen 2: Refined bass and Dolby Atmos blending improvements"
     ],
     "rollout": "Released"
   },
@@ -154,7 +87,6 @@
     "name": "Peak Response",
     "date": "August 19, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Enhanced perception upgrades for autonomous and active safety features (Gen 2)",
       "Improved cut-in and merge detection with quicker reaction times (Gen 2)",
@@ -169,7 +101,6 @@
     "name": "Route Awakening",
     "date": "July 15, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Rivian Navigation with Google Maps — live traffic, incidents, satellite imagery",
       "All New Launch Cam for Tri/Quad-Motor vehicles with telemetry overlay (Gen 2)",
@@ -184,7 +115,6 @@
     "name": "Powered Up, Locked Down",
     "date": "June 3, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Multi-factor Drive — require app authentication before starting vehicle",
       "New Rivian Energy app with usage monitoring, charge curve visualization",
@@ -199,7 +129,6 @@
     "name": "AI DJ & RAP Updates",
     "date": "May 6, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Spotify DJ AI-based song recommendations with artist commentary",
       "Media apps remember recent searches across driver profile switches",
@@ -214,7 +143,6 @@
     "name": "Gen 1 RAP & Watchful Gear Guard",
     "date": "April 8, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Smart Turn Signal automation after manual lane changes (Gen 1)",
       "Enhanced Gear Guard now records objects — not just people",
@@ -229,7 +157,6 @@
     "name": "Highway Assist & Wheel Swap",
     "date": "March 11, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Enhanced Highway Assist with hands-free driving and Driver Attention Detection (Gen 2)",
       "New Go Chime alerts when vehicle ahead drives away (Gen 2)",
@@ -244,7 +171,6 @@
     "name": "Rise & Shine",
     "date": "January 23, 2025",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Smart Turn Signal automatically cancels after manual lane changes (Gen 2)",
       "Cold weather improvements — front fascia heating and extended pre-conditioning",
@@ -259,7 +185,6 @@
     "name": "Holiday Casting",
     "date": "December 18, 2024",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Google Cast and YouTube video streaming via new Video app",
       "Smart seat climate icons auto-switch between Heat and Ventilate",
@@ -274,7 +199,6 @@
     "name": "Audio Profile Linking",
     "date": "November 22, 2024",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Media streaming accounts now link to driver profiles",
       "New lock sounds — bluebird chirp or owl hoot",
@@ -289,7 +213,6 @@
     "name": "Halloween Mode",
     "date": "October 2024",
     "type": "major",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Halloween car costume — K.I.T.T., DeLorean, or haunted house modes",
       "New navigation maneuver panel and improved driver display layout",
@@ -304,7 +227,6 @@
     "name": "Gear Guard Live",
     "date": "September 2024",
     "type": "minor",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Gear Guard Live view added"
     ],
@@ -315,7 +237,6 @@
     "name": "Accent Lighting",
     "date": "August 2024",
     "type": "minor",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Accent lighting improvements"
     ],
@@ -326,7 +247,6 @@
     "name": "Connect+",
     "date": "July 2024",
     "type": "minor",
-    "platforms": ["gen1", "gen2"],
     "highlights": [
       "Connect+ subscription service introduced"
     ],
@@ -337,7 +257,6 @@
     "name": "UI Refresh",
     "date": "May 2024",
     "type": "minor",
-    "platforms": ["gen1"],
     "highlights": [
       "Major UI refresh across center display"
     ],
@@ -348,7 +267,6 @@
     "name": "Charging Score",
     "date": "March 2024",
     "type": "minor",
-    "platforms": ["gen1"],
     "highlights": [
       "Charging Score feature introduced"
     ],
